@@ -29,7 +29,8 @@ export default function Hero() {
         </h1>
 
         <p className="text-white/40 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-12">
-          Excelência em cada detalhe. Serviços de qualidade superior com a atenção personalizada que os seus clientes merecem.
+          Excelência em cada detalhe. Serviços de qualidade superior com a
+          atenção personalizada que os seus clientes merecem.
         </p>
 
         {/* CTAs */}

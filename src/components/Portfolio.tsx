@@ -103,9 +103,7 @@ export default function Portfolio() {
 
         {/* CTA strip */}
         <div className="bg-brand-dark px-10 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/40 text-sm">
-            Não encontrou o que procura?
-          </p>
+          <p className="text-white/40 text-sm">Não encontrou o que procura?</p>
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}?text=Olá! Tenho uma questão sobre os serviços.`}
             target="_blank"

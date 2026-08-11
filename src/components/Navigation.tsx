@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 
-const CONTACT_URL = "https://wa.me/351000000000?text=Olá! Gostaria de saber mais.";
+const CONTACT_URL =
+  "https://wa.me/351000000000?text=Olá! Gostaria de saber mais.";
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);

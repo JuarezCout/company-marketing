@@ -107,9 +107,7 @@ export default function Contact() {
               <p className="text-brand-gold font-semibold group-hover:text-brand-gold-light transition-colors">
                 A sua cidade, Portugal
               </p>
-              <p className="text-white/20 text-xs mt-1">
-                Ver no Google Maps →
-              </p>
+              <p className="text-white/20 text-xs mt-1">Ver no Google Maps →</p>
             </a>
 
             {/* Hours */}
