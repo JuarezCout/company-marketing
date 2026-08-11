@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "category": "Essencial",
+    "title": "Serviço Base",
+    "description": "O ponto de entrada ideal para novos clientes. Qualidade garantida ao melhor preço.",
+    "price": 15,
+    "icon": "◆",
+    "details": ["Atendimento personalizado", "Produtos incluídos", "Resultado imediato"]
+  },
+  {
+    "id": 2,
+    "category": "Essencial",
+    "title": "Serviço Completo",
+    "description": "O pacote mais popular. Combinação perfeita de serviços para uma experiência completa.",
+    "price": 25,
+    "icon": "◆",
+    "details": ["Serviço principal incluído", "Complementos premium", "Duração estendida"]
+  },
+  {
+    "id": 3,
+    "category": "Essencial",
+    "title": "Serviço Express",
+    "description": "Rápido, eficaz e sem perder qualidade. Ideal para clientes com agenda preenchida.",
+    "price": 10,
+    "icon": "◆",
+    "details": ["Rápido e eficiente", "Sem marcação", "Resultado garantido"]
+  },
+  {
+    "id": 4,
+    "category": "Premium",
+    "title": "Tratamento Premium",
+    "description": "Experiência de alto nível com produtos de luxo e atenção redobrada aos detalhes.",
+    "price": 40,
+    "icon": "◈",
+    "details": ["Produtos de luxo", "Técnico especializado", "Experiência exclusiva"]
+  },
+  {
+    "id": 5,
+    "category": "Premium",
+    "title": "Pacote VIP",
+    "description": "O melhor que oferecemos. Serviço personalizado de ponta a ponta, sem compromissos.",
+    "price": 60,
+    "icon": "◈",
+    "details": ["Atendimento prioritário", "Todos os extras incluídos", "Experiência única"]
+  },
+  {
+    "id": 6,
+    "category": "Premium",
+    "title": "Consulta Especializada",
+    "description": "Sessão dedicada com um dos nossos especialistas para aconselhamento personalizado.",
+    "price": 30,
+    "icon": "◈",
+    "details": ["Especialista dedicado", "Plano personalizado", "Seguimento incluído"]
+  },
+  {
+    "id": 7,
+    "category": "Especial",
+    "title": "Pacote Grupo",
+    "description": "Solução ideal para grupos, eventos ou equipas. Preço especial por volume.",
+    "price": 20,
+    "icon": "◇",
+    "details": ["A partir de 3 pessoas", "Preço por pessoa", "Agendamento flexível"]
+  },
+  {
+    "id": 8,
+    "category": "Especial",
+    "title": "Plano Mensal",
+    "description": "Programa de fidelização com visitas ilimitadas e benefícios exclusivos para membros.",
+    "price": 45,
+    "icon": "◇",
+    "details": ["Visitas ilimitadas", "Prioridade no agendamento", "Descontos exclusivos"]
+  },
+  {
+    "id": 9,
+    "category": "Especial",
+    "title": "Oferta Presente",
+    "description": "O presente perfeito. Ofereça uma experiência premium a quem mais estima.",
+    "price": 35,
+    "icon": "◇",
+    "details": ["Vale presente personalizado", "Validade de 6 meses", "Embrulho incluído"]
+  }
+]
