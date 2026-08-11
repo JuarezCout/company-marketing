@@ -1,186 +1,115 @@
-# L8 Studio - Premium Custom 3D Printing Website
+# L8 Studio — Template de Website Premium
 
-A modern, high-converting Next.js website for L8 Studio, showcasing custom 3D printing services. Built with React 19, Next.js 16, and Tailwind CSS following the StoryBrand framework.
+Template de website de proposta para estabelecimentos de médio porte. Design elegante em preto, branco e dourado, construído com Next.js 15, React 19 e Tailwind CSS.
 
-## 🚀 Features
+## Stack
 
-- **Hero Section**: Impactful headline positioning the customer as the hero with premium CTAs
-- **Problem Section**: Identifies frustrations with generic items and positions custom 3D printing as the solution
-- **Visual 3-Step Process**: Clear workflow visualization (Share → Design → Print)
-- **Portfolio Gallery**: Showcase of past projects with social proof and testimonials
-- **FAQ Section**: Comprehensive answers about materials, production times, shipping, and pricing
-- **Lead Generation CTAs**: WhatsApp integration and contact forms for inquiries
-- **Responsive Design**: Mobile-first approach with full mobile optimization
-- **Modern Aesthetic**: Tech-focused, premium styling with gradient accents and smooth animations
-
-## 💻 Tech Stack
-
-- **Framework**: Next.js 16.2 with App Router
-- **UI Library**: React 19 with latest features
-- **Styling**: Tailwind CSS with custom utilities
-- **Language**: TypeScript
-- **Build Tool**: Turbopack for fast development builds
+- **Framework**: Next.js 15 com App Router
+- **UI**: React 19 + TypeScript
+- **Estilo**: Tailwind CSS v4 com tema customizado
+- **Build**: Turbopack
 - **Package Manager**: npm
 
-## 📁 Project Structure
+## Estrutura
 
 ```
 src/
 ├── app/
-│   ├── page.tsx          # Main landing page
-│   ├── layout.tsx        # Root layout with metadata
-│   └── globals.css       # Global Tailwind styles
-└── components/
-    ├── Navigation.tsx    # Header with mobile menu
-    ├── Hero.tsx          # Hero section with CTAs
-    ├── Problem.tsx       # Problem identification section
-    ├── Process.tsx       # 3-step process visualization
-    ├── Portfolio.tsx     # Project showcase with stats
-    ├── FAQ.tsx           # FAQ with collapsible items
-    ├── CTA.tsx           # Primary call-to-action section
-    └── Footer.tsx        # Footer with links and social
+│   ├── page.tsx          # Página principal
+│   ├── layout.tsx        # Layout raiz + metadata
+│   └── globals.css       # Tema de cores (brand tokens)
+├── components/
+│   ├── Navigation.tsx    # Header com menu mobile
+│   ├── Hero.tsx          # Hero section
+│   ├── Problem.tsx       # Secção "Porquê Escolher-nos"
+│   ├── Process.tsx       # Processo em 3 passos
+│   ├── Portfolio.tsx     # Grelha de serviços com filtros
+│   ├── FAQ.tsx           # FAQ com accordion
+│   ├── CTA.tsx           # Call-to-action principal
+│   ├── Contact.tsx       # Formulário + info de contacto
+│   └── Footer.tsx        # Rodapé
+└── data/
+    └── services.json     # Serviços e preços
 ```
 
-## 🎨 Design Highlights
+## Tema de Cores
 
-- **Color Scheme**: Slate, Blue, Purple gradients for premium feel
-- **Typography**: Bold, modern fonts with clear hierarchy
-- **Animations**: Smooth transitions and hover effects
-- **Mobile Responsive**: Fully optimized for all screen sizes
-- **Accessibility**: Semantic HTML and ARIA labels
+Definido em `src/app/globals.css`:
 
-## ⚙️ Installation & Setup
+| Token              | Valor     | Uso                       |
+| ------------------ | --------- | ------------------------- |
+| `brand-dark`       | `#080808` | Fundo principal (preto)   |
+| `brand-green`      | `#111111` | Fundo secções alternadas  |
+| `brand-green-mid`  | `#191919` | Hover de cards            |
+| `brand-gold`       | `#c9a84c` | Cor de destaque (dourado) |
+| `brand-gold-light` | `#d4b85e` | Hover dourado             |
 
-### Prerequisites
-
-- Node.js 18+ and npm installed
-- Git (optional, for version control)
-
-### Getting Started
-
-1. **Install dependencies**:
-
-   ```bash
-   npm install
-   ```
-
-2. **Start development server**:
-
-   ```bash
-   npm run dev
-   ```
-
-   The site will be available at `http://localhost:3000`
-
-3. **Build for production**:
-
-   ```bash
-   npm run build
-   npm run start
-   ```
-
-4. **Linting**:
-   ```bash
-   npm run lint
-   ```
-
-## 🔧 Customization
-
-### Update WhatsApp Links
-
-Replace `https://wa.me/1234567890` throughout the components with your actual WhatsApp number.
-
-### Update Contact Information
-
-- **Footer**: Update email and phone number
-- **WhatsApp Integration**: Use format `https://wa.me/COUNTRYCODE+NUMBER`
-
-### Modify Colors
-
-Edit Tailwind color classes in components:
-
-- Primary: `blue-` classes
-- Secondary: `purple-` classes
-- Neutrals: `gray-` and `slate-` classes
-
-### Update Portfolio Items
-
-Edit the `projects` array in `Portfolio.tsx` to showcase your own 3D printing projects.
-
-### Customize FAQ Categories
-
-Modify the `faqs` array in `FAQ.tsx` with your specific questions and answers.
-
-## 📈 Performance
-
-- Optimized production build with Turbopack
-- Image optimization ready for next/image
-- CSS tree-shaking via Tailwind
-- Static page generation where possible
-- Mobile-first responsive design
-
-## 🎯 Conversion Optimization
-
-The site follows the StoryBrand framework:
-
-1. **Hero Section** - Positions customer as hero, L8 Studio as guide
-2. **Problem Section** - Identifies pain points with generic products
-3. **Solution** - Clear 3-step process to resolution
-4. **Social Proof** - Portfolio and testimonials build trust
-5. **CTA** - Multiple conversion opportunities (WhatsApp, contact form, newsletter)
-
-## 🚀 Deployment
-
-This site is ready to deploy to:
-
-- **Vercel** (recommended, seamless Next.js integration)
-- **Netlify** with next-on-netlify adapter
-- **Traditional Hosting** with `npm run build`
-
-### Deploy to Vercel
+## Comandos
 
 ```bash
-npm install -g vercel
-vercel
+npm install       # Instalar dependências
+npm run dev       # Servidor de desenvolvimento (porta 3000)
+npm run build     # Build de produção
+npm run start     # Servir build de produção
+npm run lint      # ESLint
 ```
 
-## 📞 Lead Generation
+## Personalização por Cliente
 
-Current CTAs:
+### 1. Informações de contacto
 
-- WhatsApp direct messaging
-- Contact form modal
-- Newsletter signup
-- Footer contact links
+Em cada componente existe um comentário `// Replace with the client's...`. Os valores a substituir são:
 
-To integrate with backend:
+- `WHATSAPP_NUMBER` / `CONTACT_NUMBER` — número real do cliente
+- `CONTACT_EMAIL` — email real
+- `MAPS_URL` — link Google Maps do estabelecimento
 
-1. Add API route at `src/app/api/contact/route.ts`
-2. Connect to CRM (HubSpot, Pipedrive, etc.)
-3. Set up email notifications
+### 2. Identidade visual
 
-## 📝 Future Enhancements
+Em `Navigation.tsx` e `Footer.tsx`:
 
-- [ ] Blog section for 3D printing tips
-- [ ] Interactive 3D model viewer
-- [ ] Live chat integration
-- [ ] Customer testimonial videos
-- [ ] Pricing calculator
-- [ ] Project request form with file uploads
-- [ ] Team bio section
-- [ ] Integration with 3D design tools
+- Sigla do logo (`EST`) → iniciais do cliente
+- Label "Estabelecimento" → tipo de negócio
+- Nome "O Seu Negócio" → nome do estabelecimento
 
-## 🔐 Security
+### 3. Serviços e preços
 
-- No sensitive data stored client-side
-- HTTPS ready for production
-- CORS configured for API endpoints
-- XSS protection with React sanitization
+Editar `src/data/services.json` — cada entrada tem:
 
-## 📄 License
+```json
+{
+  "id": 1,
+  "category": "Essencial",
+  "title": "Nome do Serviço",
+  "description": "Descrição",
+  "price": 15,
+  "details": ["detalhe 1", "detalhe 2"]
+}
+```
 
-© 2026 L8 Studio. All rights reserved.
+### 4. Conteúdo das secções
 
-## 🤝 Support
+- **Hero** — `Hero.tsx`: título, subtítulo, tagline
+- **Porquê Escolher-nos** — `Problem.tsx`: array `reasons`
+- **Como Funciona** — `Process.tsx`: array `steps` + horário
+- **FAQ** — `FAQ.tsx`: array `faqs`
+- **CTA** — `CTA.tsx`: título, estatísticas
+- **Metadata SEO** — `layout.tsx`: título e descrição da página
 
-For questions or customizations, contact L8 Studio support.
+### 5. Formulário de contacto
+
+Substituir `YOUR_FORMSPREE_ID` em `Contact.tsx` pelo ID real do [Formspree](https://formspree.io).
+
+## Deploy
+
+Pronto para Vercel (recomendado):
+
+```bash
+npx vercel
+```
+
+Ou qualquer plataforma com suporte a Next.js (Netlify, Railway, VPS).
+
+---
+
+© 2026 L8 Studio. Todos os direitos reservados.
