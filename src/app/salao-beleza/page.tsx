@@ -1,392 +1,273 @@
 import type { Metadata } from "next";
+import { Cormorant_Garamond, Jost } from "next/font/google";
+import {
+  ArrowRight,
+  Camera,
+  Clock,
+  Drop,
+  Eye,
+  FacebookLogo,
+  InstagramLogo,
+  Leaf,
+  MapPin,
+  Minus,
+  PaintBrush,
+  Phone,
+  Plus,
+  Quotes,
+  Scissors,
+  Sparkle,
+  Star,
+  WhatsappLogo,
+} from "@phosphor-icons/react/dist/ssr";
 
-type IconProps = { className?: string };
+/**
+ * Design read: premium-consumer beauty salon landing page (redesign-overhaul),
+ * editorial language inspired by the Crafto "Beauty Salon" reference on Dribbble.
+ * Dials: VARIANCE 8 / MOTION 4 (CSS transitions only) / DENSITY 3.
+ * Palette: Terracotta + Slate family (cream/white sections, two deliberate
+ * dark navy-to-terracotta blocks reused as one consistent "color block" device).
+ */
 
-function CheckIcon({ className }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M4 12.5 9.5 18 20 6"
-        stroke="currentColor"
-        strokeWidth={1.6}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+});
 
-function ArrowIcon({ className }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M5 12h14M13 6l6 6-6 6"
-        stroke="currentColor"
-        strokeWidth={1.6}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+const jost = Jost({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+});
 
-function PinIcon({ className }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M12 21s-7-6.1-7-11.5A7 7 0 0 1 19 9.5C19 14.9 12 21 12 21Z"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinejoin="round"
-      />
-      <circle
-        cx="12"
-        cy="9.5"
-        r="2.4"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      />
-    </svg>
-  );
-}
+const whatsappLink =
+  "https://wa.me/351912345678?text=Ola! Gostaria de marcar um horario no estudio.";
 
-function ClockIcon({ className }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <circle
-        cx="12"
-        cy="12"
-        r="8.25"
-        stroke="currentColor"
-        strokeWidth={1.5}
-      />
-      <path
-        d="M12 7.5V12l3 2"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+const salonAddress = "Rua das Flores, 123, 1200-001 Lisboa";
+const salonPhone = "+351 912 345 678";
 
-function PhoneIcon({ className }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M6.5 4.5h2.7l1.2 3.6-1.9 1.7a11 11 0 0 0 5.7 5.7l1.7-1.9 3.6 1.2v2.7c0 1-.9 1.8-1.9 1.7-6.2-.6-11-5.4-11.6-11.6-.1-1 .7-1.9 1.7-1.9Z"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ScissorsIcon({ className }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <circle cx="6" cy="6" r="2.2" stroke="currentColor" strokeWidth={1.5} />
-      <circle cx="6" cy="18" r="2.2" stroke="currentColor" strokeWidth={1.5} />
-      <path
-        d="M7.7 7.4 20 18M7.7 16.6 20 6"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function SparkleIcon({ className }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M12 3.5c.6 3.2 2 4.6 5.2 5.2-3.2.6-4.6 2-5.2 5.2-.6-3.2-2-4.6-5.2-5.2 3.2-.6 4.6-2 5.2-5.2Z"
-        stroke="currentColor"
-        strokeWidth={1.4}
-        strokeLinejoin="round"
-      />
-      <path
-        d="M18.5 15.5c.3 1.6 1 2.3 2.6 2.6-1.6.3-2.3 1-2.6 2.6-.3-1.6-1-2.3-2.6-2.6 1.6-.3 2.3-1 2.6-2.6Z"
-        stroke="currentColor"
-        strokeWidth={1.2}
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function DropletIcon({ className }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M12 3.5S6 11 6 15a6 6 0 0 0 12 0c0-4-6-11.5-6-11.5Z"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function BrushIcon({ className }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M15.5 3.5 20.5 8.5 11 18 5 19l1-6 9.5-9.5Z"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinejoin="round"
-      />
-      <path
-        d="M6 18 5 19"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function LeafIcon({ className }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M19.5 4.5c.6 6.6-2.4 12-9.4 14.5-3.3-6.1-2.5-11 9.4-14.5Z"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinejoin="round"
-      />
-      <path
-        d="M18.5 5.5 6 18"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function EyeIcon({ className }: IconProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-    >
-      <path
-        d="M3.5 12S7 6.5 12 6.5 20.5 12 20.5 12 17 17.5 12 17.5 3.5 12 3.5 12Z"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinejoin="round"
-      />
-      <circle cx="12" cy="12" r="2.2" stroke="currentColor" strokeWidth={1.5} />
-    </svg>
-  );
-}
-
-const services = [
-  {
-    name: "Cabelo",
-    description:
-      "Corte, escova, coloração e tratamentos capilares pensados para a textura e o brilho do teu cabelo.",
-    price: "desde €25",
-    Icon: ScissorsIcon,
-  },
-  {
-    name: "Manicure & Pedicure",
-    description:
-      "Cuidado completo das mãos e pés, com verniz semipermanente e acabamento impecável.",
-    price: "desde €18",
-    Icon: SparkleIcon,
-  },
-  {
-    name: "Tratamentos Faciais",
-    description:
-      "Limpeza de pele, hidratação profunda e protocolos personalizados para cada tipo de pele.",
-    price: "desde €30",
-    Icon: DropletIcon,
-  },
-  {
-    name: "Maquilhagem",
-    description:
-      "Make para eventos, casamentos ou o dia a dia, adaptada ao teu estilo e tom de pele.",
-    price: "desde €35",
-    Icon: BrushIcon,
-  },
-  {
-    name: "Depilação",
-    description:
-      "Depilação a cera com produtos suaves, pensada para o conforto e a duração do resultado.",
-    price: "desde €12",
-    Icon: LeafIcon,
-  },
-  {
-    name: "Sobrancelhas & Pestanas",
-    description:
-      "Design de sobrancelhas, henna e extensão de pestanas para um olhar sempre definido.",
-    price: "desde €15",
-    Icon: EyeIcon,
-  },
+const openingHours = [
+  ["Segunda a Sexta", "09:30 - 19:30"],
+  ["Sabado", "09:30 - 17:00"],
+  ["Domingo", "Encerrado"],
 ];
 
-const reasons = [
-  {
-    title: "Cuidado pensado para ti",
-    text: "Cada serviço começa com uma conversa sobre o que procuras, para um resultado que combina com o teu estilo e rotina.",
-  },
-  {
-    title: "Espaço acolhedor",
-    text: "Um salão pequeno com atenção grande: ambiente calmo, limpo e pensado para que te sintas bem tratada em cada visita.",
-  },
-  {
-    title: "Profissionais experientes",
-    text: "Equipa em formação contínua, com produtos de qualidade e técnicas atualizadas em cada área do salão.",
-  },
-];
-
-const steps = [
+const featureTriplet = [
   {
     number: "01",
-    title: "Marca o teu horário",
-    text: "Escreve-nos no WhatsApp com o serviço que procuras e escolhemos juntas o melhor dia e hora.",
+    title: "Atendimento de excelencia",
+    text: "Sem pressa, sem scripts.",
   },
   {
     number: "02",
-    title: "Conversa inicial",
-    text: "Antes de começar, percebemos o que precisas: cabelo, unhas, pele ou combinação de serviços.",
+    title: "Produtos cruelty-free",
+    text: "Marcas selecionadas com cuidado.",
   },
   {
     number: "03",
-    title: "Sais como querias",
-    text: "Terminamos com um resultado cuidado, dicas de manutenção e a próxima visita já agendada se quiseres.",
+    title: "Equipa certificada",
+    text: "Formacao continua em cada area.",
+  },
+];
+
+const serviceCards = [
+  {
+    name: "Cabelo",
+    tagline: "Corte, cor e styling",
+    photoCaption: "Foto: servico de cabelo",
+  },
+  {
+    name: "Unhas",
+    tagline: "Manicure e pedicure",
+    photoCaption: "Foto: manicure e pedicure",
+  },
+  {
+    name: "Estetica facial",
+    tagline: "Limpeza e hidratacao",
+    photoCaption: "Foto: tratamento facial",
+  },
+];
+
+const pricingLeft = [
+  {
+    Icon: Scissors,
+    name: "Corte & Escova",
+    text: "Lavagem, corte e finalizacao",
+    price: "25 EUR",
+  },
+  {
+    Icon: Sparkle,
+    name: "Manicure",
+    text: "Verniz semipermanente incluido",
+    price: "18 EUR",
+  },
+  {
+    Icon: Drop,
+    name: "Limpeza de pele",
+    text: "Hidratacao profunda",
+    price: "30 EUR",
+  },
+];
+
+const pricingRight = [
+  {
+    Icon: PaintBrush,
+    name: "Maquilhagem",
+    text: "Para eventos e casamentos",
+    price: "35 EUR",
+  },
+  {
+    Icon: Leaf,
+    name: "Depilacao",
+    text: "Cera suave, resultado duradouro",
+    price: "12 EUR",
+  },
+  {
+    Icon: Eye,
+    name: "Design de sobrancelha",
+    text: "Com henna opcional",
+    price: "15 EUR",
+  },
+];
+
+const packages = [
+  {
+    title: "Pacote Noiva",
+    text: "Cabelo, maquilhagem e prova incluida",
+    photoCaption: "Foto: pacote noiva",
+  },
+  {
+    title: "Pacote Expresso",
+    text: "Manicure e escova em menos de uma hora",
+    photoCaption: "Foto: pacote expresso",
+  },
+];
+
+const team = [
+  {
+    name: "Marta Nogueira",
+    role: "Cabeleireira",
+    photo: "https://i.pravatar.cc/320?img=47",
+  },
+  {
+    name: "Beatriz Salgado",
+    role: "Esteticista",
+    photo: "https://i.pravatar.cc/320?img=32",
+  },
+  {
+    name: "Rita Coutinho",
+    role: "Manicure",
+    photo: "https://i.pravatar.cc/320?img=25",
+  },
+  {
+    name: "Sofia Lemos",
+    role: "Maquilhadora",
+    photo: "https://i.pravatar.cc/320?img=44",
   },
 ];
 
 const testimonials = [
   {
     quote:
-      "Salão pequeno mas com um cuidado enorme. Saí com o cabelo e as unhas impecáveis, super recomendo.",
+      "Sai com o cabelo e as unhas impecaveis. Atendimento atento do inicio ao fim.",
     author: "Marta S.",
+    role: "cliente ha 3 anos",
   },
   {
     quote:
-      "Marcar pelo WhatsApp é tão prático. A equipa é atenciosa e o resultado supera sempre as expectativas.",
-    author: "Cátia R.",
+      "Marcar pelo WhatsApp e tao pratico. O resultado supera sempre o que espero.",
+    author: "Catia R.",
+    role: "cliente",
   },
   {
-    quote:
-      "Fui para uma limpeza de pele e voltei para tudo. Ambiente calmo e profissionais muito competentes.",
-    author: "Inês F.",
+    quote: "Fui para uma limpeza de pele e voltei apaixonada pelo espaco.",
+    author: "Ines F.",
+    role: "cliente",
   },
-];
-
-const whatsappLink =
-  "https://wa.me/351912345678?text=Olá! Gostaria de marcar um horário no salão.";
-
-const salonAddress = "Rua das Flores, 123, 1200-001 Lisboa";
-const salonPhone = "+351 912 345 678";
-const openingHours = [
-  ["Segunda a Sexta", "09:30 – 19:30"],
-  ["Sábado", "09:30 – 17:00"],
-  ["Domingo", "Encerrado"],
 ];
 
 export const metadata: Metadata = {
-  title: "Salão de Beleza | Cuidado, presença e confiança",
+  title: "Alma Studio de Beleza | Cuidado que revela a tua melhor versao",
   description:
-    "Landing page para um salão de beleza de bairro, com foco em cabelo, unhas, estética e conversão via WhatsApp.",
+    "Landing page editorial para um estudio de beleza, com foco em cabelo, unhas, estetica e marcacao via WhatsApp.",
   openGraph: {
     type: "website",
     locale: "pt_PT",
-    siteName: "Salão de Beleza",
-    title: "Salão de Beleza | Cuidado, presença e confiança",
+    siteName: "Alma Studio de Beleza",
+    title: "Alma Studio de Beleza | Cuidado que revela a tua melhor versao",
     description:
-      "Landing page para um salão de beleza de bairro, com foco em cabelo, unhas, estética e conversão via WhatsApp.",
+      "Landing page editorial para um estudio de beleza, com foco em cabelo, unhas, estetica e marcacao via WhatsApp.",
   },
 };
 
+type PhotoPlaceholderProps = {
+  caption: string;
+  className?: string;
+  tone?: "light" | "dark";
+};
+
+/** Honest stand-in for real salon photography (no image-gen tool available in this session). */
+function PhotoPlaceholder({
+  caption,
+  className,
+  tone = "light",
+}: PhotoPlaceholderProps) {
+  const isDark = tone === "dark";
+  return (
+    <div
+      className={`relative flex items-start overflow-hidden rounded-2xl ${
+        isDark
+          ? "bg-[linear-gradient(135deg,#2a3038_0%,#4a3226_100%)]"
+          : "bg-[linear-gradient(135deg,#efe6dd_0%,#f6ded1_100%)]"
+      } ${className ?? ""}`}
+    >
+      <div className="flex items-center gap-2 p-4">
+        <Camera
+          size={16}
+          weight="light"
+          className={isDark ? "text-white/70" : "text-[#8a6a56]"}
+        />
+        <span
+          className={`text-xs ${isDark ? "text-white/70" : "text-[#8a6a56]"}`}
+        >
+          {caption}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function SalaoBelezaPage() {
   return (
-    <div className="min-h-screen bg-[#fbf6f3] text-[#2c2321] selection:bg-[#a9556b] selection:text-white">
-      <header className="sticky top-0 z-50 border-b border-[#a9556b]/12 bg-[#fbf6f3]/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+    <div
+      className={`${cormorant.variable} ${jost.variable} min-h-screen bg-[#faf7f4] font-(family-name:--font-body) text-[#1c2024] selection:bg-[#e07856] selection:text-white`}
+    >
+      <header className="sticky top-0 z-50 border-b border-[#1c2024]/8 bg-[#faf7f4]/92 backdrop-blur-md">
+        <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 lg:px-8">
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#a9556b] text-sm font-black tracking-widest text-[#a9556b]">
-              SB
+            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e07856] font-(family-name:--font-display) text-lg font-semibold text-[#e07856]">
+              A
             </div>
-            <span className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2c2321]">
-              Salão de Beleza
+            <span className="text-sm font-medium uppercase tracking-[0.16em] text-[#1c2024]">
+              Alma Studio
             </span>
           </div>
 
-          <nav className="hidden items-center gap-8 text-sm text-[#6b5b56] md:flex">
-            <a href="#sobre" className="transition hover:text-[#a9556b]">
+          <nav className="hidden items-center gap-8 text-sm text-[#54504c] lg:flex">
+            <a href="#sobre" className="transition hover:text-[#e07856]">
               Sobre
             </a>
-            <a href="#servicos" className="transition hover:text-[#a9556b]">
-              Serviços
+            <a href="#servicos" className="transition hover:text-[#e07856]">
+              Servicos
             </a>
-            <a href="#processo" className="transition hover:text-[#a9556b]">
-              Como funciona
+            <a href="#equipa" className="transition hover:text-[#e07856]">
+              Equipa
             </a>
-            <a href="#avaliacoes" className="transition hover:text-[#a9556b]">
-              Avaliações
+            <a href="#avaliacoes" className="transition hover:text-[#e07856]">
+              Avaliacoes
             </a>
-            <a href="#contacto" className="transition hover:text-[#a9556b]">
+            <a href="#contacto" className="transition hover:text-[#e07856]">
               Contacto
             </a>
           </nav>
@@ -395,168 +276,141 @@ export default function SalaoBelezaPage() {
             href={whatsappLink}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#a9556b] px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] text-white transition hover:bg-[#8f4256] sm:px-5 sm:tracking-[0.2em]"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#e07856] px-5 py-2.5 text-xs font-medium text-white transition hover:bg-[#c9663f] active:scale-[0.98]"
           >
-            Marcar horário
+            Marcar horario
           </a>
         </div>
       </header>
 
       <main>
-        <section className="relative overflow-hidden bg-[#fbf6f3]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(169,85,107,0.12),transparent_45%)]" />
-          <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-28">
-            <div className="flex flex-col justify-center">
-              <h1 className="max-w-xl text-5xl font-black tracking-[-0.03em] text-[#2c2321] md:text-6xl lg:text-7xl">
-                Cuidado que se nota, num salão de bairro.
+        {/* Hero: asymmetric split, dark editorial block (color-block device, use #1) */}
+        <section className="relative overflow-hidden bg-[#161d24]">
+          <div className="absolute inset-0 bg-[linear-gradient(115deg,#161d24_20%,#4a3226_100%)] opacity-90" />
+          <div className="relative mx-auto grid max-w-7xl gap-10 px-6 pb-16 pt-16 lg:grid-cols-[1fr_0.85fr] lg:gap-16 lg:px-8 lg:pt-20">
+            <div className="flex flex-col justify-center text-white">
+              <h1 className="max-w-lg font-(family-name:--font-display) text-5xl font-medium leading-[1.05] tracking-[-0.01em] md:text-6xl">
+                Cuidado que revela a tua melhor versao.
               </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#6b5b56]">
-                Cabelo, unhas, estética e maquilhagem com atenção pessoal,
-                marcação simples pelo WhatsApp e um espaço pensado para te
-                sentires bem cuidada.
+              <p className="mt-6 max-w-md text-base leading-relaxed text-white/70">
+                Cabelo, pele e bem-estar num espaco pensado para te sentires
+                cuidada, do primeiro dia a ultima visita.
               </p>
 
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <div className="mt-9 flex flex-wrap items-center gap-4">
                 <a
                   href={whatsappLink}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#a9556b] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] text-white transition hover:bg-[#8f4256]"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#e07856] px-7 py-3.5 text-xs font-medium text-white transition hover:bg-[#c9663f] active:scale-[0.98]"
                 >
-                  Agendar agora
-                  <ArrowIcon className="h-4 w-4" />
+                  Marcar horario
+                  <ArrowRight size={16} weight="bold" />
                 </a>
                 <a
                   href="#servicos"
-                  className="inline-flex items-center justify-center rounded-full border border-[#a9556b]/35 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] text-[#a9556b] transition hover:border-[#a9556b] hover:bg-[#a9556b]/5"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-xs font-medium text-white transition hover:border-white/50"
                 >
-                  Ver serviços
+                  Ver servicos
                 </a>
-              </div>
-
-              <div className="mt-12 grid max-w-lg grid-cols-3 gap-4 text-left">
-                {[
-                  ["4.9/5", "Avaliação"],
-                  ["800+", "Clientes"],
-                  ["24h", "Para agendar"],
-                ].map(([value, label]) => (
-                  <div
-                    key={label}
-                    className="rounded-xl border border-[#a9556b]/15 bg-white p-4"
-                  >
-                    <p className="text-2xl font-black text-[#a9556b]">
-                      {value}
-                    </p>
-                    <p className="mt-2 text-[10px] uppercase tracking-[0.2em] text-[#6b5b56]">
-                      {label}
-                    </p>
-                  </div>
-                ))}
               </div>
             </div>
 
             <div className="relative">
-              <div className="absolute -left-8 top-12 h-32 w-32 rounded-full bg-[#a9556b]/12 blur-3xl" />
-              <div className="relative overflow-hidden rounded-2xl border border-[#a9556b]/18 bg-white p-5 shadow-[0_20px_45px_-25px_rgba(44,35,33,0.35)]">
-                <div className="mb-5 flex items-center justify-between border-b border-[#a9556b]/15 pb-4">
-                  <div>
-                    <p className="text-xl font-semibold text-[#2c2321]">
-                      Agenda de hoje
-                    </p>
-                  </div>
-                  <div className="rounded-full border border-[#a9556b]/30 px-3 py-1 text-[10px] uppercase tracking-[0.15em] text-[#a9556b]">
-                    Hoje
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  {[
-                    ["Corte & Escova", "09:30"],
-                    ["Manicure", "11:00"],
-                    ["Design de sobrancelha", "13:30"],
-                    ["Limpeza de pele", "16:00"],
-                  ].map(([service, hour]) => (
-                    <div
-                      key={service}
-                      className="flex items-center justify-between rounded-lg border border-[#a9556b]/10 bg-[#faf3f0] p-4"
-                    >
-                      <div>
-                        <p className="text-sm font-semibold text-[#2c2321]">
-                          {service}
-                        </p>
-                        <p className="mt-1 text-[10px] uppercase tracking-[0.15em] text-[#6b5b56]">
-                          Disponível
-                        </p>
-                      </div>
-                      <span className="text-sm font-bold text-[#a9556b]">
-                        {hour}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 rounded-xl border border-[#a9556b]/20 bg-[linear-gradient(135deg,rgba(169,85,107,0.1),rgba(255,255,255,0.4))] p-5">
-                  <p className="text-3xl font-black text-[#2c2321]">
-                    Manicure + Escova
-                  </p>
-                  <p className="mt-2 text-sm text-[#6b5b56]">
-                    Combo do dia por apenas €30
-                  </p>
-                </div>
+              <PhotoPlaceholder
+                caption="Foto: cliente apos tratamento de beleza"
+                className="h-105 w-full md:h-135"
+              />
+              <div className="absolute -bottom-6 left-6 flex items-center gap-3 rounded-xl border border-[#1c2024]/8 bg-white px-5 py-4 shadow-[0_20px_45px_-25px_rgba(28,32,36,0.45)] md:left-8">
+                <Star size={18} weight="fill" className="text-[#e07856]" />
+                <p className="text-sm font-medium text-[#1c2024]">
+                  4.9/5 <span className="text-[#54504c]">- 800+ clientes</span>
+                </p>
               </div>
             </div>
           </div>
         </section>
 
+        {/* Promo micro-strip */}
+        <section className="border-b border-[#1c2024]/8 bg-white px-6 py-6 lg:px-8">
+          <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 sm:divide-x sm:divide-[#1c2024]/10">
+            <div className="flex items-center gap-4 sm:pr-6">
+              <Star
+                size={22}
+                weight="fill"
+                className="flex-none text-[#e07856]"
+              />
+              <p className="text-sm text-[#54504c]">
+                <span className="font-medium text-[#1c2024]">
+                  Estudio premiado 2024.
+                </span>{" "}
+                Atendimento personalizado em cada visita.
+              </p>
+            </div>
+            <div className="flex items-center gap-4 sm:pl-6">
+              <Sparkle
+                size={22}
+                weight="fill"
+                className="flex-none text-[#e07856]"
+              />
+              <p className="text-sm text-[#54504c]">
+                <span className="font-medium text-[#1c2024]">
+                  -20% em maquilhagem de noiva.
+                </span>{" "}
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-[#e07856] hover:underline"
+                >
+                  Pedir orcamento
+                </a>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* About: image + text split (1st of the split pattern) */}
         <section
           id="sobre"
-          className="border-t border-[#a9556b]/10 bg-[#f6ece7] px-6 py-24 lg:px-8"
+          className="bg-[#faf7f4] px-6 py-20 lg:px-8 lg:py-28"
         >
-          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.2fr]">
-            <div className="relative min-h-105 rounded-2xl border border-[#a9556b]/15 bg-[radial-gradient(circle_at_top,rgba(169,85,107,0.16),rgba(255,255,255,0.3)),linear-gradient(135deg,#ffffff,#f3e2da)] p-6">
-              <div className="relative flex h-full flex-col justify-between">
-                <span className="inline-flex w-fit rounded-full border border-[#a9556b]/25 px-3 py-1 text-[10px] uppercase tracking-[0.15em] text-[#a9556b]">
-                  Salão de bairro desde 2015
-                </span>
-                <div className="space-y-4">
-                  <p className="text-4xl font-black tracking-[-0.03em] text-[#2c2321]">
-                    Mais do que um serviço.
-                  </p>
-                  <p className="text-lg leading-relaxed text-[#6b5b56]">
-                    Uma experiência pensada para quem valoriza um cuidado
-                    próximo, atencioso e com resultado visível.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1fr] lg:items-center">
+            <PhotoPlaceholder
+              caption="Foto: interior do estudio"
+              className="h-90 w-full lg:h-130"
+            />
 
-            <div className="flex flex-col justify-center">
-              <h2 className="max-w-lg text-4xl font-black tracking-[-0.03em] text-[#2c2321] md:text-5xl">
-                Cuidado e atenção em cada detalhe.
-              </h2>
-              <p className="mt-6 max-w-xl leading-relaxed text-[#6b5b56]">
-                No nosso salão, cada cliente recebe atenção personalizada e um
-                serviço pensado para refletir a melhor versão de si. Apostamos
-                em técnicas atuais e num acompanhamento próximo, com o cuidado
-                de um espaço pequeno e a qualidade de uma equipa experiente.
+            <div>
+              <p className="mb-3 text-xs font-medium uppercase tracking-[0.16em] text-[#e07856]">
+                Sobre o estudio
               </p>
+              <h2 className="max-w-md font-(family-name:--font-display) text-4xl font-medium leading-[1.1] text-[#1c2024] md:text-5xl">
+                Tratamentos para o corpo. Cuidado para a pele.
+              </h2>
+              <p className="mt-6 max-w-lg leading-relaxed text-[#54504c]">
+                Mais de uma decada a cuidar de peles e cabelos com tecnicas
+                atuais, produtos de qualidade e uma equipa que trata cada
+                cliente como unica.
+              </p>
+              <a
+                href="#equipa"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#1c2024] underline decoration-[#e07856] decoration-2 underline-offset-4"
+              >
+                Conhecer a equipa
+                <ArrowRight size={15} weight="bold" />
+              </a>
 
-              <div className="mt-10 grid gap-5 sm:grid-cols-3">
-                {[
-                  ["6k+", "Serviços realizados"],
-                  ["4.9 ★", "Satisfação"],
-                  ["10 anos", "De experiência"],
-                ].map(([value, label]) => (
-                  <div
-                    key={label}
-                    className="rounded-xl border border-[#a9556b]/15 bg-white p-5"
-                  >
-                    <p className="text-3xl font-black text-[#a9556b]">
-                      {value}
+              <div className="mt-12 grid gap-8 border-t border-[#1c2024]/10 pt-8 sm:grid-cols-3">
+                {featureTriplet.map((feature) => (
+                  <div key={feature.number}>
+                    <p className="mb-2 font-(family-name:--font-display) text-sm text-[#c9663f]">
+                      {feature.number}
                     </p>
-                    <p className="mt-2 text-[10px] uppercase tracking-[0.2em] text-[#6b5b56]">
-                      {label}
-                    </p>
+                    <h3 className="mb-1 text-sm font-medium text-[#1c2024]">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-[#54504c]">{feature.text}</p>
                   </div>
                 ))}
               </div>
@@ -564,119 +418,248 @@ export default function SalaoBelezaPage() {
           </div>
         </section>
 
-        <section id="servicos" className="bg-[#fbf6f3] px-6 py-24 lg:px-8">
+        {/* Services: image-card trio */}
+        <section id="servicos" className="bg-white px-6 py-20 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl">
-            <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <h2 className="text-4xl font-black tracking-[-0.03em] text-[#2c2321] md:text-5xl">
-                O que oferecemos
-              </h2>
-              <p className="max-w-xl text-sm text-[#6b5b56]">
-                Serviços pensados para quem quer cuidar do visual com qualidade,
-                conforto e um preço justo para o dia a dia.
+            <div className="mb-12 flex flex-col gap-3">
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#e07856]">
+                Servicos do estudio
               </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {services.map(({ Icon, ...service }) => (
-                <article
-                  key={service.name}
-                  className="group rounded-2xl border border-[#a9556b]/15 bg-white p-6 transition hover:-translate-y-1 hover:border-[#a9556b]/35 hover:shadow-[0_20px_40px_-28px_rgba(169,85,107,0.5)]"
-                >
-                  <div className="mb-6 flex items-center justify-between">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#a9556b]/10 text-[#a9556b]">
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <span className="text-lg font-black text-[#a9556b]">
-                      {service.price}
-                    </span>
-                  </div>
-                  <h3 className="mb-3 text-2xl font-bold text-[#2c2321]">
-                    {service.name}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-[#6b5b56]">
-                    {service.description}
-                  </p>
-                  <a
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 rounded-full border border-[#a9556b]/30 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.15em] text-[#a9556b] transition hover:bg-[#a9556b] hover:text-white"
-                  >
-                    Reservar
-                    <ArrowIcon className="h-3.5 w-3.5" />
-                  </a>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#f6ece7] px-6 py-24 lg:px-8">
-          <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-            <div>
-              <h2 className="max-w-md text-4xl font-black tracking-[-0.03em] text-[#2c2321] md:text-5xl">
-                Porque as clientes voltam sempre.
-              </h2>
-              <p className="mt-6 max-w-md leading-relaxed text-[#6b5b56]">
-                Um salão pequeno consegue dar o que um grande não dá: atenção
-                real, à tua medida, visita após visita.
-              </p>
-            </div>
-
-            <div className="divide-y divide-[#a9556b]/15 border-t border-[#a9556b]/15">
-              {reasons.map((reason) => (
-                <div key={reason.title} className="flex gap-5 py-7">
-                  <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-[#a9556b] text-white">
-                    <CheckIcon className="h-4 w-4" />
-                  </span>
-                  <div>
-                    <h3 className="mb-2 text-xl font-bold text-[#2c2321]">
-                      {reason.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-[#6b5b56]">
-                      {reason.text}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="processo" className="bg-[#fbf6f3] px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-12">
-              <h2 className="text-4xl font-black tracking-[-0.03em] text-[#2c2321] md:text-5xl">
-                Um processo simples, do início ao fim
+              <h2 className="font-(family-name:--font-display) text-4xl font-medium text-[#1c2024] md:text-5xl">
+                Cabelo, unhas e estetica
               </h2>
             </div>
 
             <div className="grid gap-6 md:grid-cols-3">
-              {steps.map((step) => (
-                <div
-                  key={step.number}
-                  className="rounded-2xl border border-[#a9556b]/15 bg-white p-7"
-                >
-                  <p className="mb-6 text-sm font-bold uppercase tracking-[0.2em] text-[#a9556b]">
-                    Passo {step.number}
-                  </p>
-                  <h3 className="mb-3 text-2xl font-bold text-[#2c2321]">
-                    {step.title}
+              {serviceCards.map((card) => (
+                <div key={card.name} className="group">
+                  <div className="overflow-hidden rounded-2xl">
+                    <PhotoPlaceholder
+                      caption={card.photoCaption}
+                      className="h-72 w-full transition duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <h3 className="mt-4 font-(family-name:--font-display) text-2xl font-medium text-[#1c2024]">
+                    {card.name}
                   </h3>
-                  <p className="text-sm leading-relaxed text-[#6b5b56]">
-                    {step.text}
-                  </p>
+                  <p className="text-sm text-[#54504c]">{card.tagline}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="avaliacoes" className="bg-[#f6ece7] px-6 py-24 lg:px-8">
+        {/* Pricing list: two-column icon rows, divide-y only (no double borders) */}
+        <section className="bg-[#faf7f4] px-6 py-20 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-7xl">
-            <div className="mb-12">
-              <h2 className="text-4xl font-black tracking-[-0.03em] text-[#2c2321] md:text-5xl">
-                O que dizem as nossas clientes
+            <p className="mb-10 text-lg text-[#1c2024]">
+              Os nossos precos mais pedidos.{" "}
+              <a
+                href="#contacto"
+                className="font-medium text-[#e07856] hover:underline"
+              >
+                Ver todos os servicos
+              </a>
+            </p>
+
+            <div className="grid gap-x-16 gap-y-1 md:grid-cols-2">
+              <div className="divide-y divide-[#1c2024]/10">
+                {pricingLeft.map((item) => (
+                  <div key={item.name} className="flex items-center gap-4 py-5">
+                    <item.Icon
+                      size={22}
+                      weight="light"
+                      className="flex-none text-[#e07856]"
+                    />
+                    <div className="flex-1">
+                      <p className="text-sm font-medium text-[#1c2024]">
+                        {item.name}
+                      </p>
+                      <p className="text-sm text-[#54504c]">{item.text}</p>
+                    </div>
+                    <span className="font-(family-name:--font-display) text-lg text-[#1c2024]">
+                      {item.price}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <div className="divide-y divide-[#1c2024]/10">
+                {pricingRight.map((item) => (
+                  <div key={item.name} className="flex items-center gap-4 py-5">
+                    <item.Icon
+                      size={22}
+                      weight="light"
+                      className="flex-none text-[#e07856]"
+                    />
+                    <div className="flex-1">
+                      <p className="text-sm font-medium text-[#1c2024]">
+                        {item.name}
+                      </p>
+                      <p className="text-sm text-[#54504c]">{item.text}</p>
+                    </div>
+                    <span className="font-(family-name:--font-display) text-lg text-[#1c2024]">
+                      {item.price}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Package promo duo */}
+        <section className="bg-white px-6 py-20 lg:px-8 lg:py-28">
+          <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2">
+            {packages.map((pack) => (
+              <div
+                key={pack.title}
+                className="group relative overflow-hidden rounded-2xl"
+              >
+                <PhotoPlaceholder
+                  caption={pack.photoCaption}
+                  tone="dark"
+                  className="h-80 w-full transition duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-[#161d24]/80 via-[#161d24]/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6">
+                  <div>
+                    <p className="font-(family-name:--font-display) text-2xl font-medium text-white">
+                      {pack.title}
+                    </p>
+                    <p className="mt-1 text-sm text-white/75">{pack.text}</p>
+                  </div>
+                  <a
+                    href={whatsappLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Marcar ${pack.title}`}
+                    className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-white text-[#1c2024] transition hover:bg-[#e07856] hover:text-white active:scale-[0.95]"
+                  >
+                    <ArrowRight size={18} weight="bold" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Trust banner: dark editorial block reused (color-block device, use #2) */}
+        <section className="relative overflow-hidden bg-[#161d24]">
+          <div className="absolute inset-0 bg-[linear-gradient(115deg,#161d24_25%,#4a3226_100%)] opacity-90" />
+          <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[0.85fr_1fr] lg:items-center lg:px-8 lg:py-28">
+            <PhotoPlaceholder
+              caption="Foto: especialista em preparacao"
+              className="h-80 w-full lg:h-115"
+            />
+
+            <div className="text-white">
+              <h2 className="max-w-md font-(family-name:--font-display) text-4xl font-medium leading-[1.1] md:text-5xl">
+                A qualidade e a seguranca em primeiro lugar.
+              </h2>
+
+              <div className="mt-8 border-t border-white/15">
+                <details open className="group border-b border-white/15 py-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-medium">
+                    Produtos e tecnicas certificadas
+                    <Minus
+                      size={16}
+                      weight="bold"
+                      className="hidden flex-none group-open:block"
+                    />
+                    <Plus
+                      size={16}
+                      weight="bold"
+                      className="flex-none group-open:hidden"
+                    />
+                  </summary>
+                  <p className="mt-3 max-w-md text-sm leading-relaxed text-white/65">
+                    Ha mais de dez anos a par das normas de higiene e seguranca
+                    mais exigentes do setor, com produtos dermatologicamente
+                    testados.
+                  </p>
+                </details>
+                <details className="group border-b border-white/15 py-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between text-sm font-medium">
+                    Acompanhamento a cada visita
+                    <Minus
+                      size={16}
+                      weight="bold"
+                      className="hidden flex-none group-open:block"
+                    />
+                    <Plus
+                      size={16}
+                      weight="bold"
+                      className="flex-none group-open:hidden"
+                    />
+                  </summary>
+                  <p className="mt-3 max-w-md text-sm leading-relaxed text-white/65">
+                    Registamos o teu historico e preferencias para que cada
+                    visita seguinte seja ainda mais precisa.
+                  </p>
+                </details>
+              </div>
+
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#e07856] px-7 py-3.5 text-xs font-medium text-white transition hover:bg-[#c9663f] active:scale-[0.98]"
+              >
+                Marcar horario
+                <ArrowRight size={16} weight="bold" />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Specialists / team grid */}
+        <section
+          id="equipa"
+          className="bg-[#faf7f4] px-6 py-20 lg:px-8 lg:py-28"
+        >
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-12 flex flex-col gap-3">
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#e07856]">
+                A nossa equipa
+              </p>
+              <h2 className="font-(family-name:--font-display) text-4xl font-medium text-[#1c2024] md:text-5xl">
+                Especialistas em beleza
+              </h2>
+            </div>
+
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {team.map((member) => (
+                <div key={member.name} className="text-center">
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    width={160}
+                    height={160}
+                    loading="lazy"
+                    className="mx-auto h-32 w-32 rounded-full object-cover"
+                  />
+                  <p className="mt-4 text-sm font-medium text-[#1c2024]">
+                    {member.name}
+                  </p>
+                  <p className="text-sm text-[#54504c]">{member.role}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section
+          id="avaliacoes"
+          className="bg-white px-6 py-20 lg:px-8 lg:py-28"
+        >
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-12 flex flex-col gap-3">
+              <p className="text-xs font-medium uppercase tracking-[0.16em] text-[#e07856]">
+                Avaliacoes
+              </p>
+              <h2 className="font-(family-name:--font-display) text-4xl font-medium text-[#1c2024] md:text-5xl">
+                As nossas clientes recomendam
               </h2>
             </div>
 
@@ -684,13 +667,20 @@ export default function SalaoBelezaPage() {
               {testimonials.map((testimonial) => (
                 <blockquote
                   key={testimonial.author}
-                  className="rounded-2xl border border-[#a9556b]/15 bg-white p-7"
+                  className="rounded-2xl border border-[#1c2024]/10 bg-[#faf7f4] p-7"
                 >
-                  <p className="text-lg leading-relaxed text-[#3a2f2c]">
-                    “{testimonial.quote}”
+                  <Quotes size={24} weight="fill" className="text-[#e07856]" />
+                  <p className="mt-4 text-base leading-relaxed text-[#1c2024]">
+                    {testimonial.quote}
                   </p>
-                  <footer className="mt-6 text-sm font-semibold uppercase tracking-[0.15em] text-[#a9556b]">
-                    {testimonial.author}
+                  <footer className="mt-6 text-sm">
+                    <span className="font-medium text-[#1c2024]">
+                      {testimonial.author}
+                    </span>
+                    <span className="text-[#54504c]">
+                      {" "}
+                      - {testimonial.role}
+                    </span>
                   </footer>
                 </blockquote>
               ))}
@@ -698,67 +688,55 @@ export default function SalaoBelezaPage() {
           </div>
         </section>
 
-        <section id="contacto" className="bg-[#fbf6f3] px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-5xl">
-            <div className="mb-10">
-              <h2 className="text-4xl font-black tracking-[-0.03em] text-[#2c2321] md:text-5xl">
-                Pronto para marcares o teu horário?
-              </h2>
-            </div>
+        {/* Contact / location */}
+        <section
+          id="contacto"
+          className="bg-[#faf7f4] px-6 py-20 lg:px-8 lg:py-28"
+        >
+          <div className="mx-auto max-w-7xl">
+            <h2 className="mb-12 font-(family-name:--font-display) text-4xl font-medium text-[#1c2024] md:text-5xl">
+              Vamos tratar de ti?
+            </h2>
 
-            <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-              <div className="rounded-2xl border border-[#a9556b]/20 bg-[linear-gradient(135deg,rgba(169,85,107,0.1),rgba(255,255,255,0.6))] p-8 md:p-10">
-                <p className="max-w-md text-lg leading-relaxed text-[#3a2f2c]">
-                  A forma mais rápida de marcar é pelo WhatsApp: dizes o serviço
-                  que procuras e respondemos com os horários disponíveis.
-                </p>
-                <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                  <a
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#a9556b] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] text-white transition hover:bg-[#8f4256]"
-                  >
-                    Falar no WhatsApp
-                    <ArrowIcon className="h-4 w-4" />
-                  </a>
-                  <a
-                    href={`tel:${salonPhone.replace(/\s/g, "")}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-[#a9556b]/35 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.2em] text-[#a9556b] transition hover:border-[#a9556b] hover:bg-[#a9556b]/5"
-                  >
-                    <PhoneIcon className="h-4 w-4" />
-                    Ligar
-                  </a>
-                </div>
-              </div>
+            <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+              <PhotoPlaceholder
+                caption="Foto: fachada do estudio"
+                className="h-64 w-full lg:h-full"
+              />
 
-              <div className="space-y-4">
-                <div className="flex gap-4 rounded-2xl border border-[#a9556b]/15 bg-white p-6">
-                  <PinIcon className="h-5 w-5 flex-none text-[#a9556b]" />
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="flex gap-4 rounded-2xl border border-[#1c2024]/10 bg-white p-6">
+                  <MapPin
+                    size={20}
+                    weight="light"
+                    className="flex-none text-[#e07856]"
+                  />
                   <div>
-                    <p className="text-sm font-semibold text-[#2c2321]">
-                      Morada
-                    </p>
-                    <p className="mt-1 text-sm text-[#6b5b56]">
+                    <p className="text-sm font-medium text-[#1c2024]">Morada</p>
+                    <p className="mt-1 text-sm text-[#54504c]">
                       {salonAddress}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex gap-4 rounded-2xl border border-[#a9556b]/15 bg-white p-6">
-                  <ClockIcon className="h-5 w-5 flex-none text-[#a9556b]" />
+                <div className="flex gap-4 rounded-2xl border border-[#1c2024]/10 bg-white p-6">
+                  <Clock
+                    size={20}
+                    weight="light"
+                    className="flex-none text-[#e07856]"
+                  />
                   <div className="w-full">
-                    <p className="mb-2 text-sm font-semibold text-[#2c2321]">
-                      Horário
+                    <p className="mb-2 text-sm font-medium text-[#1c2024]">
+                      Horario
                     </p>
                     <dl className="space-y-1">
                       {openingHours.map(([day, hours]) => (
                         <div
                           key={day}
-                          className="flex items-center justify-between text-sm text-[#6b5b56]"
+                          className="flex items-center justify-between text-sm text-[#54504c]"
                         >
                           <dt>{day}</dt>
-                          <dd className="font-medium text-[#2c2321]">
+                          <dd className="font-medium text-[#1c2024]">
                             {hours}
                           </dd>
                         </div>
@@ -766,41 +744,127 @@ export default function SalaoBelezaPage() {
                     </dl>
                   </div>
                 </div>
+
+                <div className="flex flex-col gap-3 rounded-2xl border border-[#1c2024]/10 bg-white p-6 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="max-w-sm text-sm leading-relaxed text-[#54504c]">
+                    A forma mais rapida de marcar e pelo WhatsApp: dizes o
+                    servico e respondemos com os horarios disponiveis.
+                  </p>
+                  <div className="flex flex-none gap-3">
+                    <a
+                      href={whatsappLink}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#e07856] px-6 py-3 text-xs font-medium text-white transition hover:bg-[#c9663f] active:scale-[0.98]"
+                    >
+                      Marcar horario
+                      <ArrowRight size={15} weight="bold" />
+                    </a>
+                    <a
+                      href={`tel:${salonPhone.replace(/\s/g, "")}`}
+                      className="inline-flex items-center gap-2 rounded-full border border-[#1c2024]/15 px-6 py-3 text-xs font-medium text-[#1c2024] transition hover:border-[#e07856] hover:text-[#e07856]"
+                    >
+                      <Phone size={15} weight="light" />
+                      Ligar
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
-      </main>
 
-      <footer className="border-t border-[#a9556b]/15 bg-[#f6ece7] px-6 py-10 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 text-sm text-[#6b5b56] md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#a9556b] text-[10px] font-black tracking-widest text-[#a9556b]">
-              SB
-            </div>
-            <span className="uppercase tracking-[0.15em] text-[#2c2321]">
-              Salão de Beleza
-            </span>
-          </div>
-          <div className="flex flex-wrap items-center gap-6">
-            <a href="#servicos" className="transition hover:text-[#a9556b]">
-              Serviços
-            </a>
-            <a href="#processo" className="transition hover:text-[#a9556b]">
-              Como funciona
-            </a>
-            <span className="text-[#a9556b]/30">•</span>
-            <span>{salonAddress}</span>
+        {/* Final CTA strip */}
+        <section className="bg-[#161d24] px-6 py-14 text-center lg:px-8">
+          <p className="mx-auto max-w-xl font-(family-name:--font-display) text-2xl font-medium text-white md:text-3xl">
+            Todas merecem sentir-se bem tratadas.{" "}
             <a
               href={whatsappLink}
               target="_blank"
               rel="noreferrer"
-              className="transition hover:text-[#a9556b]"
+              className="text-[#e07856] underline decoration-2 underline-offset-4 hover:text-[#f0906f]"
             >
-              WhatsApp
+              Marca o teu horario
             </a>
+          </p>
+        </section>
+      </main>
+
+      <footer className="border-t border-[#1c2024]/10 bg-white px-6 py-14 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1fr_1fr_1fr_1fr]">
+          <div className="flex items-center gap-3 md:col-span-1">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e07856] font-(family-name:--font-display) text-lg font-semibold text-[#e07856]">
+              A
+            </div>
+            <span className="text-sm font-medium uppercase tracking-[0.16em] text-[#1c2024]">
+              Alma Studio
+            </span>
+          </div>
+
+          <div>
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.16em] text-[#8a857f]">
+              Contacto
+            </p>
+            <p className="text-sm text-[#54504c]">{salonAddress}</p>
+            <p className="mt-1 text-sm text-[#54504c]">{salonPhone}</p>
+          </div>
+
+          <div>
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.16em] text-[#8a857f]">
+              Ligacoes rapidas
+            </p>
+            <div className="flex flex-col gap-1.5 text-sm text-[#54504c]">
+              <a href="#servicos" className="transition hover:text-[#e07856]">
+                Servicos
+              </a>
+              <a href="#equipa" className="transition hover:text-[#e07856]">
+                Equipa
+              </a>
+              <a href="#avaliacoes" className="transition hover:text-[#e07856]">
+                Avaliacoes
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.16em] text-[#8a857f]">
+              Segue-nos
+            </p>
+            <div className="flex gap-3">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1c2024]/12 text-[#1c2024] transition hover:border-[#e07856] hover:text-[#e07856]"
+              >
+                <InstagramLogo size={16} weight="light" />
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1c2024]/12 text-[#1c2024] transition hover:border-[#e07856] hover:text-[#e07856]"
+              >
+                <FacebookLogo size={16} weight="light" />
+              </a>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1c2024]/12 text-[#1c2024] transition hover:border-[#e07856] hover:text-[#e07856]"
+              >
+                <WhatsappLogo size={16} weight="light" />
+              </a>
+            </div>
           </div>
         </div>
+
+        <p className="mx-auto mt-10 max-w-7xl text-xs text-[#8a857f]">
+          Copyright 2026 Alma Studio de Beleza.
+        </p>
       </footer>
     </div>
   );

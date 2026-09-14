@@ -1,145 +1,164 @@
 import type { Metadata } from "next";
+import { Oswald, Work_Sans } from "next/font/google";
+import {
+  ArrowRight,
+  CalendarBlank,
+  Camera,
+  Clock,
+  EnvelopeSimple,
+  FacebookLogo,
+  InstagramLogo,
+  MapPin,
+  PaperPlaneTilt,
+  Phone,
+  Quotes,
+  Scissors,
+  Star,
+  WhatsappLogo,
+} from "@phosphor-icons/react/dist/ssr";
 
-const services = [
-  {
-    name: "Corte Premium",
-    description:
-      "Corte moderno com acabamento impecável, definição de linhas e atenção total ao rosto e perfil.",
-    price: "€22",
-  },
-  {
-    name: "Barba Sculpt",
-    description:
-      "Modelagem precisa e acabamento refinado para uma barba definida, limpa e com presença.",
-    price: "€16",
-  },
-  {
-    name: "Combo Clássico",
-    description:
-      "Corte + barba + hidratação para um cuidado completo com o visual e a textura do cabelo.",
-    price: "€35",
-  },
-  {
-    name: "Corte + Lavagem",
-    description:
-      "Serviço completo com lavagem, corte e acabamento final para uma experiência premium.",
-    price: "€28",
-  },
-  {
-    name: "Hidratação & Tratamento",
-    description:
-      "Tratamento capilar para restaurar brilho, maciez e vitalidade no cabelo e no couro cabeludo.",
-    price: "€18",
-  },
-  {
-    name: "Manutenção Mensal",
-    description:
-      "Plano ideal para quem quer manter um visual sempre impecável, com prioridade e atenção.",
-    price: "€49",
-  },
-];
+/**
+ * Redesign of /barbearia following the redesign-existing-projects audit,
+ * referencing the "Modern Mane" Dribbble barbershop template: dark espresso
+ * hero with a real appointment card, location strip, work gallery, price
+ * list + featured testimonial, team grid, structured footer.
+ */
 
-const reasons = [
-  {
-    title: "Estilo que combina com a tua rotina",
-    text: "Cortes pensados para o teu rosto, cabelo e personalidade, sempre com um acabamento premium.",
-  },
-  {
-    title: "Ambiente premium",
-    text: "Um espaço moderno, acolhedor e profissional, pensado para que te sintas bem desde o primeiro minuto.",
-  },
-  {
-    title: "Atendimento atento",
-    text: "Acompanhamento personalizado, recomendação certa e serviço que respeita o teu tempo e a tua imagem.",
-  },
-];
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+});
 
-const steps = [
-  {
-    number: "01",
-    title: "Marca a tua visita",
-    text: "Fala connosco por WhatsApp e escolhe o melhor dia e hora para o teu atendimento.",
-  },
-  {
-    number: "02",
-    title: "Consulta de estilo",
-    text: "O nosso especialista avalia o teu visual, cabelo e preferências para recomendar a melhor solução.",
-  },
-  {
-    number: "03",
-    title: "Resultado premium",
-    text: "Recebe um acabamento impecável, cuidado e com atenção aos detalhes que fazem diferença.",
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "O melhor corte que já tive. Ambiente impecável, equipa muito profissional e atendimento premium.",
-    author: "Miguel P.",
-  },
-  {
-    quote:
-      "Fui pela recomendação e agora sou cliente fixo. O acabamento e a atenção ao detalhe são fantásticos.",
-    author: "Rui A.",
-  },
-  {
-    quote:
-      "Além do corte impecável, o espaço transmite muito bom gosto e profissionalismo. Vale muito a pena.",
-    author: "Daniel M.",
-  },
-];
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+});
 
 const whatsappLink =
-  "https://wa.me/351912345678?text=Olá! Gostaria de marcar uma visita na barbearia.";
+  "https://wa.me/351210000000?text=Ola! Gostaria de marcar um horario na barbearia.";
+
+const shopAddress = "Rua do Corte, 45, 1200-002 Lisboa";
+const shopPhone = "+351 210 000 000";
+const openingHours = [
+  ["Segunda a Sexta", "09:00 - 20:00"],
+  ["Sabado", "09:00 - 18:00"],
+  ["Domingo", "Encerrado"],
+];
+
+const prices = [
+  { name: "Corte", price: "22 EUR" },
+  { name: "Barba", price: "16 EUR" },
+  { name: "Corte + Barba", price: "35 EUR" },
+  { name: "Aparar de barba", price: "12 EUR" },
+  { name: "Tratamento capilar", price: "18 EUR" },
+];
+
+const gallery = [
+  "Foto: corte finalizado",
+  "Foto: modelagem de barba",
+  "Foto: acabamento a navalha",
+  "Foto: styling em curso",
+  "Foto: cliente satisfeito",
+];
+
+const team = [
+  {
+    name: "Tiago Alves",
+    role: "Master Barber",
+    photo: "https://i.pravatar.cc/320?img=12",
+  },
+  {
+    name: "Rui Ferreira",
+    role: "Barbeiro",
+    photo: "https://i.pravatar.cc/320?img=33",
+  },
+  {
+    name: "Andre Costa",
+    role: "Barbeiro Junior",
+    photo: "https://i.pravatar.cc/320?img=15",
+  },
+];
 
 export const metadata: Metadata = {
-  title: "Barbearia Premium | Estilo, presença e precisão",
+  title: "Malta Barbearia | Onde a tradicao encontra o estilo moderno",
   description:
-    "Landing page premium para uma barbearia moderna, com foco em cortes, barba, atendimento e conversão via WhatsApp.",
+    "Landing page para uma barbearia de bairro, com marcacao rapida, localizacao, precos e equipa.",
   openGraph: {
     type: "website",
     locale: "pt_PT",
-    siteName: "Barbearia Premium",
-    title: "Barbearia Premium | Estilo, presença e precisão",
+    siteName: "Malta Barbearia",
+    title: "Malta Barbearia | Onde a tradicao encontra o estilo moderno",
     description:
-      "Landing page premium para uma barbearia moderna, com foco em cortes, barba, atendimento e conversão via WhatsApp.",
+      "Landing page para uma barbearia de bairro, com marcacao rapida, localizacao, precos e equipa.",
   },
 };
 
+type PhotoPlaceholderProps = {
+  caption: string;
+  className?: string;
+  tone?: "dark" | "cream";
+};
+
+/** Honest stand-in for real barbershop photography (no image-gen tool available in this session). */
+function PhotoPlaceholder({
+  caption,
+  className,
+  tone = "dark",
+}: PhotoPlaceholderProps) {
+  const isDark = tone === "dark";
+  return (
+    <div
+      className={`relative flex items-start overflow-hidden rounded-xl ${
+        isDark
+          ? "bg-[linear-gradient(135deg,#3a2a1d_0%,#241a14_100%)]"
+          : "bg-[linear-gradient(135deg,#e4d6bf_0%,#ece3d3_100%)]"
+      } ${className ?? ""}`}
+    >
+      <div className="flex items-center gap-2 p-3">
+        <Camera
+          size={15}
+          weight="light"
+          className={isDark ? "text-white/60" : "text-[#7a6a55]"}
+        />
+        <span
+          className={`text-xs ${isDark ? "text-white/60" : "text-[#7a6a55]"}`}
+        >
+          {caption}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function BarbeariaPage() {
   return (
-    <div className="min-h-screen bg-[#0b0b0d] text-stone-100">
-      <header className="sticky top-0 z-50 border-b border-[#d4af37]/15 bg-[#0b0b0d]/85 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+    <div
+      className={`${oswald.variable} ${workSans.variable} min-h-screen bg-[#ece3d3] font-(family-name:--font-body) text-[#241a14] selection:bg-[#e0893f] selection:text-white`}
+    >
+      <header className="sticky top-0 z-50 border-b border-[#241a14]/10 bg-[#ece3d3]/92 backdrop-blur-md">
+        <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 lg:px-8">
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center border border-[#d4af37] text-sm font-black tracking-[0.25em] text-[#d4af37]">
-              BP
+            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e0893f] font-(family-name:--font-display) text-lg font-semibold text-[#e0893f]">
+              M
             </div>
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.35em] text-[#d4af37]/70">
-                Barbearia
-              </p>
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
-                Premium
-              </p>
-            </div>
+            <span className="font-(family-name:--font-display) text-sm font-semibold uppercase tracking-[0.14em] text-[#241a14]">
+              Malta Barbearia
+            </span>
           </div>
 
-          <nav className="hidden items-center gap-8 text-sm text-stone-300 md:flex">
-            <a href="#sobre" className="transition hover:text-[#d4af37]">
-              Sobre
+          <nav className="hidden items-center gap-8 text-sm text-[#5c4c3c] lg:flex">
+            <a href="#servicos" className="transition hover:text-[#e0893f]">
+              Servicos
             </a>
-            <a href="#servicos" className="transition hover:text-[#d4af37]">
-              Serviços
+            <a href="#equipa" className="transition hover:text-[#e0893f]">
+              Equipa
             </a>
-            <a href="#processo" className="transition hover:text-[#d4af37]">
-              Processo
+            <a href="#trabalhos" className="transition hover:text-[#e0893f]">
+              Trabalhos
             </a>
-            <a href="#avaliacoes" className="transition hover:text-[#d4af37]">
-              Avaliações
-            </a>
-            <a href="#contacto" className="transition hover:text-[#d4af37]">
+            <a href="#contacto" className="transition hover:text-[#e0893f]">
               Contacto
             </a>
           </nav>
@@ -148,185 +167,143 @@ export default function BarbeariaPage() {
             href={whatsappLink}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center border border-[#d4af37] bg-[#d4af37] px-5 py-2.5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#101010] transition hover:bg-[#e0bf61]"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#e0893f] px-5 py-2.5 text-xs font-medium text-white transition hover:bg-[#c5702c] active:scale-[0.98]"
           >
-            Marcar visita
+            Marcar horario
           </a>
         </div>
       </header>
 
       <main>
-        <section className="relative overflow-hidden bg-[#0b0b0d]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.16),_transparent_40%)]" />
-          <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:px-8 lg:py-28">
-            <div className="flex flex-col justify-center">
-              <p className="mb-6 text-xs uppercase tracking-[0.45em] text-[#d4af37]/80">
-                Estilo, presença e precisão
-              </p>
-              <h1 className="max-w-xl text-5xl font-black tracking-[-0.05em] text-white md:text-6xl lg:text-7xl">
-                A tua melhor versão começa aqui.
-              </h1>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-stone-300">
-                Barbearia premium para quem quer um visual impecável, uma
-                experiência moderna e um atendimento que realmente faz a
-                diferença.
+        {/* Hero: dark espresso block with a real appointment card */}
+        <section className="relative overflow-hidden bg-[#241a14]">
+          <div className="absolute inset-0 bg-[linear-gradient(115deg,#241a14_35%,#3a2a1d_100%)]" />
+          <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 lg:px-8 lg:py-24">
+            <div className="order-2 rounded-2xl border border-white/10 bg-[#2f2019] p-6 lg:order-1">
+              <p className="mb-5 font-(family-name:--font-display) text-lg font-semibold uppercase tracking-[0.06em] text-white">
+                Marcacao rapida
               </p>
 
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <form className="space-y-4">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="mb-1.5 block text-xs font-medium text-white/70"
+                  >
+                    Nome
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="O teu nome"
+                    className="w-full rounded-lg border border-white/15 bg-[#241a14] px-3.5 py-2.5 text-sm text-white placeholder:text-white/35 focus:border-[#e0893f] focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="mb-1.5 block text-xs font-medium text-white/70"
+                  >
+                    Telefone
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="+351 900 000 000"
+                    className="w-full rounded-lg border border-white/15 bg-[#241a14] px-3.5 py-2.5 text-sm text-white placeholder:text-white/35 focus:border-[#e0893f] focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="service"
+                    className="mb-1.5 block text-xs font-medium text-white/70"
+                  >
+                    Servico
+                  </label>
+                  <select
+                    id="service"
+                    name="service"
+                    className="w-full rounded-lg border border-white/15 bg-[#241a14] px-3.5 py-2.5 text-sm text-white focus:border-[#e0893f] focus:outline-none"
+                    defaultValue="Corte"
+                  >
+                    <option>Corte</option>
+                    <option>Barba</option>
+                    <option>Corte + Barba</option>
+                    <option>Tratamento capilar</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="slot"
+                    className="mb-1.5 block text-xs font-medium text-white/70"
+                  >
+                    Horario preferido
+                  </label>
+                  <div className="relative">
+                    <CalendarBlank
+                      size={16}
+                      weight="light"
+                      className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-white/40"
+                    />
+                    <input
+                      id="slot"
+                      name="slot"
+                      type="text"
+                      placeholder="Ex: Sabado, 15h"
+                      className="w-full rounded-lg border border-white/15 bg-[#241a14] py-2.5 pl-10 pr-3.5 text-sm text-white placeholder:text-white/35 focus:border-[#e0893f] focus:outline-none"
+                    />
+                  </div>
+                </div>
+
                 <a
                   href={whatsappLink}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center bg-[#d4af37] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.25em] text-[#111111] transition hover:bg-[#e2bf5a]"
+                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#e0893f] py-3 text-xs font-medium text-white transition hover:bg-[#c5702c] active:scale-[0.98]"
                 >
-                  Agendar agora
+                  Pedir marcacao
+                  <ArrowRight size={15} weight="bold" />
                 </a>
+                <p className="text-center text-[11px] text-white/40">
+                  Confirmamos a tua marcacao por WhatsApp.
+                </p>
+              </form>
+            </div>
+
+            <div className="order-1 flex flex-col justify-center text-white lg:order-2">
+              <h1 className="max-w-lg font-(family-name:--font-display) text-4xl font-semibold uppercase leading-[1.08] tracking-[-0.01em] md:text-5xl">
+                Onde a tradicao encontra o estilo moderno.
+              </h1>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-white/65">
+                Cortes classicos e modernos, num ambiente que respeita o oficio
+                e cuida de cada detalhe.
+              </p>
+
+              <div className="mt-9 flex flex-wrap items-center gap-4">
                 <a
-                  href="#servicos"
-                  className="inline-flex items-center justify-center border border-[#d4af37]/40 px-8 py-3.5 text-xs font-bold uppercase tracking-[0.25em] text-[#d4af37] transition hover:border-[#d4af37] hover:bg-[#d4af37]/5"
+                  href="#trabalhos"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-xs font-medium text-white transition hover:border-white/50"
                 >
-                  Ver serviços
+                  Ver trabalhos
                 </a>
               </div>
 
-              <div className="mt-12 grid max-w-lg grid-cols-3 gap-4 text-left">
+              <div className="mt-12 grid max-w-md grid-cols-3 gap-4">
                 {[
-                  ["4.9/5", "Avaliação"],
+                  ["4.8/5", "Avaliacao"],
                   ["1.2k+", "Clientes"],
-                  ["48h", "Para agendar"],
+                  ["12 anos", "De oficio"],
                 ].map(([value, label]) => (
-                  <div
-                    key={label}
-                    className="border border-[#d4af37]/15 bg-[#141419] p-4"
-                  >
-                    <p className="text-2xl font-black text-[#d4af37]">
+                  <div key={label}>
+                    <p className="font-(family-name:--font-display) text-2xl font-semibold text-[#e0893f]">
                       {value}
                     </p>
-                    <p className="mt-2 text-[10px] uppercase tracking-[0.24em] text-stone-400">
-                      {label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="absolute -left-8 top-12 h-32 w-32 rounded-full bg-[#d4af37]/10 blur-3xl" />
-              <div className="relative overflow-hidden border border-[#d4af37]/20 bg-[#121214] p-5 shadow-[0_0_60px_rgba(212,175,55,0.08)]">
-                <div className="mb-5 flex items-center justify-between border-b border-[#d4af37]/20 pb-4">
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.35em] text-[#d4af37]/70">
-                      Atendimento
-                    </p>
-                    <p className="mt-1 text-xl font-semibold text-white">
-                      Agenda premium
-                    </p>
-                  </div>
-                  <div className="rounded-full border border-[#d4af37]/40 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#d4af37]">
-                    Hoje
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  {[
-                    ["Corte e barba", "09:30"],
-                    ["Barba sculpt", "11:00"],
-                    ["Combo premium", "14:00"],
-                    ["Hidratação", "16:30"],
-                  ].map(([service, hour]) => (
-                    <div
-                      key={service}
-                      className="flex items-center justify-between border border-[#d4af37]/10 bg-[#18181b] p-4"
-                    >
-                      <div>
-                        <p className="text-sm font-semibold text-white">
-                          {service}
-                        </p>
-                        <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-stone-400">
-                          Disponível
-                        </p>
-                      </div>
-                      <span className="text-sm font-bold text-[#d4af37]">
-                        {hour}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="mt-6 rounded-xl border border-[#d4af37]/20 bg-[linear-gradient(135deg,rgba(212,175,55,0.12),rgba(255,255,255,0.02))] p-5">
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-[#d4af37]/80">
-                    Especial
-                  </p>
-                  <p className="mt-4 text-3xl font-black text-white">
-                    Combo Premium
-                  </p>
-                  <p className="mt-2 text-sm text-stone-300">
-                    Corte + barba + hidratação por apenas €35
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section
-          id="sobre"
-          className="border-t border-[#d4af37]/10 bg-[#0f0f12] px-6 py-24 lg:px-8"
-        >
-          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1.2fr]">
-            <div className="relative min-h-[420px] border border-[#d4af37]/15 bg-[radial-gradient(circle_at_top,_rgba(212,175,55,0.18),_rgba(17,17,17,0.2)),linear-gradient(135deg,#18181b,#0b0b0d)] p-6">
-              <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_0%,rgba(212,175,55,0.08)_100%)]" />
-              <div className="relative flex h-full flex-col justify-between">
-                <div className="flex items-center justify-between">
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-[#d4af37]/80">
-                    Desde 2015
-                  </p>
-                  <span className="rounded-full border border-[#d4af37]/30 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[#d4af37]">
-                    Premium
-                  </span>
-                </div>
-                <div className="space-y-4">
-                  <p className="text-4xl font-black tracking-[-0.04em] text-white">
-                    Mais do que um corte.
-                  </p>
-                  <p className="text-lg leading-relaxed text-stone-300">
-                    Uma experiência feita para quem valoriza presença, confiança
-                    e acabamento impecável.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-col justify-center">
-              <p className="mb-5 text-xs uppercase tracking-[0.35em] text-[#d4af37]/75">
-                Sobre nós
-              </p>
-              <h2 className="max-w-lg text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
-                Visão, precisão e cuidado em cada detalhe.
-              </h2>
-              <p className="mt-6 max-w-xl leading-relaxed text-stone-300">
-                Na nossa barbearia, cada cliente recebe atenção personalizada e
-                um serviço pensado para refletir a melhor versão de si.
-                Apostamos em cortes clássicos e modernos, sempre com acabamento
-                refinado e um ambiente que transmite confiança.
-              </p>
-
-              <div className="mt-10 grid gap-5 sm:grid-cols-3">
-                {[
-                  ["10k+", "Cortes realizados"],
-                  ["5 ★", "Satisfação"],
-                  ["100%", "Foco no detalhe"],
-                ].map(([value, label]) => (
-                  <div
-                    key={label}
-                    className="border border-[#d4af37]/15 bg-[#141419] p-5"
-                  >
-                    <p className="text-3xl font-black text-[#d4af37]">
-                      {value}
-                    </p>
-                    <p className="mt-2 text-[10px] uppercase tracking-[0.24em] text-stone-400">
-                      {label}
-                    </p>
+                    <p className="mt-1 text-xs text-white/55">{label}</p>
                   </div>
                 ))}
               </div>
@@ -334,241 +311,297 @@ export default function BarbeariaPage() {
           </div>
         </section>
 
-        <section id="servicos" className="bg-[#101012] px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <div>
-                <p className="mb-4 text-xs uppercase tracking-[0.35em] text-[#d4af37]/75">
-                  Serviços
-                </p>
-                <h2 className="text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
-                  O que oferecemos
-                </h2>
-              </div>
-              <p className="max-w-xl text-sm text-stone-400">
-                Serviços pensados para quem quer cuidar do visual com qualidade,
-                conforto e acabamento premium.
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {services.map((service) => (
-                <article
-                  key={service.name}
-                  className="group border border-[#d4af37]/15 bg-[#141419] p-6 transition hover:-translate-y-1 hover:border-[#d4af37]/35"
-                >
-                  <div className="mb-6 flex items-center justify-between">
-                    <span className="text-[10px] uppercase tracking-[0.32em] text-[#d4af37]/75">
-                      Premium
-                    </span>
-                    <span className="text-2xl font-black text-[#d4af37]">
-                      {service.price}
-                    </span>
-                  </div>
-                  <h3 className="mb-3 text-2xl font-bold text-white">
-                    {service.name}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-stone-300">
-                    {service.description}
-                  </p>
-                  <a
-                    href={whatsappLink}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 border border-[#d4af37]/40 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#d4af37] transition hover:bg-[#d4af37] hover:text-[#111111]"
-                  >
-                    Reservar
-                    <span aria-hidden="true">→</span>
-                  </a>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#0d0d10] px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-12">
-              <p className="mb-4 text-xs uppercase tracking-[0.35em] text-[#d4af37]/75">
-                A nossa diferença
-              </p>
-              <h2 className="max-w-2xl text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
-                Porque os nossos clientes voltam sempre.
+        {/* Service beyond expectation: location strip */}
+        <section className="bg-[#2f2019] px-6 py-16 text-white lg:px-8 lg:py-20">
+          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1fr_0.8fr] lg:items-center">
+            <div>
+              <h2 className="max-w-xs font-(family-name:--font-display) text-3xl font-semibold uppercase leading-[1.1]">
+                Servico acima da expectativa.
               </h2>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              {reasons.map((reason) => (
-                <div
-                  key={reason.title}
-                  className="border border-[#d4af37]/15 bg-[#141419] p-7"
-                >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center border border-[#d4af37]/30 text-lg font-black text-[#d4af37]">
-                    ✓
-                  </div>
-                  <h3 className="mb-3 text-xl font-bold text-white">
-                    {reason.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-stone-300">
-                    {reason.text}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="processo" className="bg-[#101012] px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-12">
-              <p className="mb-4 text-xs uppercase tracking-[0.35em] text-[#d4af37]/75">
-                Como funciona
+              <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
+                Cada corte e feito com atencao ao detalhe, tecnica apurada e
+                produtos de qualidade, para que saias sempre com a mesma
+                confianca.
               </p>
-              <h2 className="text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
-                Um processo simples e eficiente
-              </h2>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              {steps.map((step) => (
-                <div
-                  key={step.number}
-                  className="border-t border-[#d4af37]/20 pt-7"
-                >
-                  <p className="mb-6 text-6xl font-black text-[#d4af37]/30">
-                    {step.number}
-                  </p>
-                  <h3 className="mb-3 text-2xl font-bold text-white">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-stone-300">
-                    {step.text}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#0d0d10] px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-12 flex items-end justify-between gap-4">
-              <div>
-                <p className="mb-4 text-xs uppercase tracking-[0.35em] text-[#d4af37]/75">
-                  Preços
-                </p>
-                <h2 className="text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
-                  Valores simples e claros
-                </h2>
-              </div>
-              <p className="hidden text-sm text-stone-400 md:block">
-                Sem complicações, sem surpresas.
-              </p>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              {[
-                ["Corte", "€22"],
-                ["Barba", "€16"],
-                ["Combo premium", "€35"],
-              ].map(([name, price]) => (
-                <div
-                  key={name}
-                  className="border border-[#d4af37]/15 bg-[#141419] p-8 text-center"
-                >
-                  <p className="text-[10px] uppercase tracking-[0.35em] text-[#d4af37]/75">
-                    {name}
-                  </p>
-                  <p className="mt-6 text-5xl font-black text-white">{price}</p>
-                  <p className="mt-3 text-sm text-stone-300">
-                    Excelente qualidade e acabamento profissional.
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="avaliacoes" className="bg-[#101012] px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-12">
-              <p className="mb-4 text-xs uppercase tracking-[0.35em] text-[#d4af37]/75">
-                Avaliações
-              </p>
-              <h2 className="text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
-                O que dizem os nossos clientes
-              </h2>
-            </div>
-
-            <div className="grid gap-6 md:grid-cols-3">
-              {testimonials.map((testimonial) => (
-                <blockquote
-                  key={testimonial.author}
-                  className="border border-[#d4af37]/15 bg-[#141419] p-7"
-                >
-                  <p className="text-lg leading-relaxed text-stone-200">
-                    “{testimonial.quote}”
-                  </p>
-                  <footer className="mt-6 text-sm font-semibold uppercase tracking-[0.2em] text-[#d4af37]">
-                    {testimonial.author}
-                  </footer>
-                </blockquote>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="contacto" className="bg-[#0d0d10] px-6 py-24 lg:px-8">
-          <div className="mx-auto max-w-5xl rounded-2xl border border-[#d4af37]/20 bg-[linear-gradient(135deg,rgba(212,175,55,0.08),rgba(255,255,255,0.02))] p-8 md:p-12">
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-              <div>
-                <p className="mb-4 text-xs uppercase tracking-[0.35em] text-[#d4af37]/75">
-                  Contacto
-                </p>
-                <h2 className="text-4xl font-black tracking-[-0.04em] text-white md:text-5xl">
-                  Pronto para renovar o teu visual?
-                </h2>
-              </div>
               <a
                 href={whatsappLink}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center bg-[#d4af37] px-8 py-3.5 text-xs font-bold uppercase tracking-[0.25em] text-[#111111] transition hover:bg-[#e2bf5a]"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#e0893f] px-6 py-3 text-xs font-medium text-white transition hover:bg-[#c5702c] active:scale-[0.98]"
               >
-                Falar no WhatsApp
+                Pedir marcacao
+                <ArrowRight size={15} weight="bold" />
               </a>
+            </div>
+
+            <PhotoPlaceholder
+              caption="Mapa: localizacao da barbearia"
+              className="h-52 w-full"
+            />
+
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <MapPin
+                  size={18}
+                  weight="light"
+                  className="mt-0.5 flex-none text-[#e0893f]"
+                />
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-white/45">
+                    Localizacao
+                  </p>
+                  <p className="text-sm text-white/85">{shopAddress}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Phone
+                  size={18}
+                  weight="light"
+                  className="mt-0.5 flex-none text-[#e0893f]"
+                />
+                <div>
+                  <p className="text-xs uppercase tracking-widest text-white/45">
+                    Telefone
+                  </p>
+                  <p className="text-sm text-white/85">{shopPhone}</p>
+                  <p className="mt-1 text-xs text-white/45">
+                    {openingHours[0][0]}: {openingHours[0][1]}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Discover our works: horizontal scroll gallery */}
+        <section
+          id="trabalhos"
+          className="bg-[#ece3d3] px-6 py-16 lg:px-8 lg:py-20"
+        >
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <h2 className="font-(family-name:--font-display) text-3xl font-semibold uppercase text-[#241a14] md:text-4xl">
+                  Descobre os nossos trabalhos.
+                </h2>
+                <p className="mt-3 max-w-md text-sm leading-relaxed text-[#5c4c3c]">
+                  A nossa equipa esta sempre atualizada com as tecnicas e
+                  tendencias mais recentes, para um resultado a tua medida.
+                </p>
+              </div>
+              <p className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-[#8a7a68]">
+                Desliza para ver mais
+                <ArrowRight size={14} weight="bold" />
+              </p>
+            </div>
+
+            <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
+              {gallery.map((caption) => (
+                <PhotoPlaceholder
+                  key={caption}
+                  caption={caption}
+                  tone="cream"
+                  className="h-64 w-64 flex-none snap-start"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Prices + featured testimonial */}
+        <section id="servicos" className="bg-white px-6 py-16 lg:px-8 lg:py-20">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
+            <div>
+              <h2 className="mb-8 font-(family-name:--font-display) text-3xl font-semibold uppercase text-[#241a14] md:text-4xl">
+                Os nossos precos.
+              </h2>
+              <div className="divide-y divide-dotted divide-[#241a14]/20">
+                {prices.map((item) => (
+                  <div key={item.name} className="flex items-center gap-3 py-4">
+                    <Scissors
+                      size={16}
+                      weight="light"
+                      className="flex-none text-[#e0893f]"
+                    />
+                    <span className="flex-1 text-sm text-[#241a14]">
+                      {item.name}
+                    </span>
+                    <span className="font-(family-name:--font-display) text-base font-medium text-[#241a14]">
+                      {item.price}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col justify-center rounded-2xl bg-[#e0893f] p-8 text-white">
+              <Quotes size={28} weight="fill" className="text-white/80" />
+              <p className="mt-4 max-w-sm text-lg leading-relaxed">
+                Ando aqui ha mais de cinco anos e nunca fiquei desiludido.
+                Equipa profissional e sempre atenta as tendencias.
+              </p>
+              <div className="mt-6 flex items-center gap-2">
+                <Star size={14} weight="fill" />
+                <Star size={14} weight="fill" />
+                <Star size={14} weight="fill" />
+                <Star size={14} weight="fill" />
+                <Star size={14} weight="fill" />
+              </div>
+              <p className="mt-3 text-sm font-medium">Ricardo M.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Team */}
+        <section
+          id="equipa"
+          className="bg-[#ece3d3] px-6 py-16 lg:px-8 lg:py-20"
+        >
+          <div className="mx-auto max-w-7xl">
+            <h2 className="mb-10 font-(family-name:--font-display) text-3xl font-semibold uppercase text-[#241a14] md:text-4xl">
+              Conhece a equipa.
+            </h2>
+
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {team.map((member) => (
+                <div
+                  key={member.name}
+                  className="rounded-2xl bg-white p-5 text-center"
+                >
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    width={140}
+                    height={140}
+                    loading="lazy"
+                    className="mx-auto h-28 w-28 rounded-full object-cover"
+                  />
+                  <p className="mt-4 text-sm font-medium text-[#241a14]">
+                    {member.name}
+                  </p>
+                  <p className="text-xs text-[#8a7a68]">{member.role}</p>
+                </div>
+              ))}
+
+              <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-[#241a14]/25 p-5 text-center">
+                <PaperPlaneTilt
+                  size={22}
+                  weight="light"
+                  className="text-[#e0893f]"
+                />
+                <p className="mt-3 text-sm font-medium text-[#241a14]">
+                  Queres juntar-te a equipa?
+                </p>
+                <a
+                  href="mailto:equipa@maltabarbearia.pt"
+                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-[#241a14] px-5 py-2.5 text-xs font-medium text-white transition hover:bg-[#3a2a1d]"
+                >
+                  Enviar candidatura
+                  <EnvelopeSimple size={14} weight="light" />
+                </a>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-[#d4af37]/15 bg-[#0b0b0d] px-6 py-10 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 text-sm text-stone-400 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center border border-[#d4af37] text-[10px] font-black tracking-[0.25em] text-[#d4af37]">
-              BP
+      <footer
+        id="contacto"
+        className="bg-[#241a14] px-6 py-14 text-white lg:px-8"
+      >
+        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.1fr_0.8fr_0.8fr_1fr]">
+          <div>
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#e0893f] font-(family-name:--font-display) text-lg font-semibold text-[#e0893f]">
+                M
+              </div>
+              <span className="font-(family-name:--font-display) text-sm font-semibold uppercase tracking-[0.14em]">
+                Malta Barbearia
+              </span>
             </div>
-            <span className="uppercase tracking-[0.2em] text-white">
-              Barbearia Premium
-            </span>
+            <p className="mt-4 text-sm text-white/55">{shopAddress}</p>
+            <p className="mt-1 text-sm text-white/55">{shopPhone}</p>
           </div>
-          <div className="flex gap-6">
-            <a href="#servicos" className="transition hover:text-[#d4af37]">
-              Serviços
-            </a>
-            <a href="#processo" className="transition hover:text-[#d4af37]">
-              Processo
-            </a>
+
+          <div>
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.14em] text-white/40">
+              Menu
+            </p>
+            <div className="flex flex-col gap-1.5 text-sm text-white/70">
+              <a href="#servicos" className="transition hover:text-[#e0893f]">
+                Servicos
+              </a>
+              <a href="#equipa" className="transition hover:text-[#e0893f]">
+                Equipa
+              </a>
+              <a href="#trabalhos" className="transition hover:text-[#e0893f]">
+                Trabalhos
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.14em] text-white/40">
+              Horario
+            </p>
+            <div className="space-y-1 text-sm text-white/70">
+              {openingHours.map(([day, hours]) => (
+                <div key={day} className="flex justify-between gap-4">
+                  <span>{day}</span>
+                  <span className="text-white/50">{hours}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-3 text-xs font-medium uppercase tracking-[0.14em] text-white/40">
+              Segue-nos
+            </p>
+            <div className="flex gap-3">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition hover:border-[#e0893f] hover:text-[#e0893f]"
+              >
+                <InstagramLogo size={16} weight="light" />
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition hover:border-[#e0893f] hover:text-[#e0893f]"
+              >
+                <FacebookLogo size={16} weight="light" />
+              </a>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition hover:border-[#e0893f] hover:text-[#e0893f]"
+              >
+                <WhatsappLogo size={16} weight="light" />
+              </a>
+            </div>
             <a
               href={whatsappLink}
               target="_blank"
               rel="noreferrer"
-              className="transition hover:text-[#d4af37]"
+              className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#e0893f] px-5 py-2.5 text-xs font-medium text-white transition hover:bg-[#c5702c] active:scale-[0.98]"
             >
-              WhatsApp
+              Marcar horario
+              <ArrowRight size={14} weight="bold" />
             </a>
           </div>
         </div>
+
+        <p className="mx-auto mt-10 max-w-7xl text-xs text-white/35">
+          Copyright 2026 Malta Barbearia.
+        </p>
       </footer>
     </div>
   );
