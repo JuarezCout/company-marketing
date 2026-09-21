@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import homeContent from "@/content/home.json";
 
-const CONTACT_URL =
-  "https://wa.me/351000000000?text=Olá! Gostaria de saber mais.";
+const CONTACT_URL = "https://wa.me/351000000000?text=Ola! Gostaria de saber mais.";
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
@@ -20,10 +20,10 @@ export default function Navigation() {
           </div>
           <div className="leading-none">
             <span className="block text-brand-gold/60 text-[10px] tracking-[0.25em] uppercase">
-              Estabelecimento
+              {homeContent.navigation.brandKicker}
             </span>
             <span className="block text-brand-gold font-bold text-sm tracking-[0.15em] uppercase">
-              O Seu Negócio
+              {homeContent.navigation.brandName}
             </span>
           </div>
         </a>
@@ -31,10 +31,10 @@ export default function Navigation() {
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-10">
           {[
-            ["#servicos", "Serviços"],
-            ["#como-funciona", "Como Funciona"],
-            ["#faq", "FAQ"],
-            ["#contacto", "Contacto"],
+            ["#servicos", homeContent.navigation.services],
+            ["#como-funciona", homeContent.navigation.process],
+            ["#faq", homeContent.navigation.faq],
+            ["#contacto", homeContent.navigation.contact],
           ].map(([href, label]) => (
             <a
               key={href}
@@ -54,7 +54,7 @@ export default function Navigation() {
             rel="noopener noreferrer"
             className="hidden md:inline-flex items-center gap-2 px-5 py-2 border border-brand-gold text-brand-gold text-sm font-semibold tracking-wide hover:bg-brand-gold hover:text-brand-dark transition-all"
           >
-            Entrar em Contacto
+            {homeContent.navigation.contact}
           </a>
           <button
             onClick={() => setOpen(!open)}
@@ -90,10 +90,10 @@ export default function Navigation() {
       {open && (
         <div className="md:hidden border-t border-brand-gold/20 bg-brand-dark px-6 py-4 space-y-4">
           {[
-            ["#servicos", "Serviços"],
-            ["#como-funciona", "Como Funciona"],
-            ["#faq", "FAQ"],
-            ["#contacto", "Contacto"],
+            ["#servicos", homeContent.navigation.services],
+            ["#como-funciona", homeContent.navigation.process],
+            ["#faq", homeContent.navigation.faq],
+            ["#contacto", homeContent.navigation.contact],
           ].map(([href, label]) => (
             <a
               key={href}
@@ -110,7 +110,7 @@ export default function Navigation() {
             rel="noopener noreferrer"
             className="block border border-brand-gold text-brand-gold text-sm font-semibold tracking-wide text-center py-2 hover:bg-brand-gold hover:text-brand-dark transition-all"
           >
-            Entrar em Contacto
+            {homeContent.navigation.contact}
           </a>
         </div>
       )}

@@ -15,6 +15,78 @@
   --foreground: #f5f0e8;
 }
 
+.theme-barbearia {
+  --page: #ece3d3;
+  --surface: #241a14;
+  --surface-strong: #2f2019;
+  --text: #241a14;
+  --text-on-dark: #ffffff;
+  --muted: #5c4c3c;
+  --accent: #e0893f;
+  --accent-strong: #c5702c;
+  --border: rgba(36, 21, 20, 0.1);
+}
+
+.theme-salao-beleza {
+  --page: #faf7f4;
+  --surface: #161d24;
+  --surface-strong: #ffffff;
+  --text: #1c2024;
+  --text-on-dark: #ffffff;
+  --muted: #54504c;
+  --accent: #e07856;
+  --accent-strong: #c9663f;
+  --border: rgba(28, 32, 36, 0.1);
+}
+
+.theme-reformas {
+  --page: #fbe9d8;
+  --surface: #241512;
+  --surface-strong: #2f1c17;
+  --text: #241512;
+  --text-on-dark: #ffffff;
+  --muted: #5c4438;
+  --accent: #e2793a;
+  --accent-strong: #c5622a;
+  --border: rgba(36, 21, 18, 0.1);
+}
+
+.theme-banho-e-cozinha {
+  --page: #17120d;
+  --surface: #201a17;
+  --surface-strong: #2e241f;
+  --text: #fff5ea;
+  --text-on-dark: #ffffff;
+  --muted: #f4dcc3;
+  --accent: #f9c74f;
+  --accent-strong: #fbd876;
+  --border: rgba(249, 199, 79, 0.15);
+}
+
+.theme-canalizacao {
+  --page: #0d1419;
+  --surface: #101c25;
+  --surface-strong: #122432;
+  --text: #ebf8ff;
+  --text-on-dark: #ffffff;
+  --muted: #cfeafc;
+  --accent: #7dd3fc;
+  --accent-strong: #a3e2fd;
+  --border: rgba(125, 211, 252, 0.15);
+}
+
+.theme-saude {
+  --page: #eef3e6;
+  --surface: #0f1f17;
+  --surface-strong: #16241b;
+  --text: #16241b;
+  --text-on-dark: #ffffff;
+  --muted: #5c6b57;
+  --accent: #4f7a4a;
+  --accent-strong: #3d6238;
+  --border: rgba(22, 36, 27, 0.1);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

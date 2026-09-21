@@ -20,6 +20,7 @@ import {
   Star,
   WhatsappLogo,
 } from "@phosphor-icons/react/dist/ssr";
+import salaoContent from "@/content/salao-beleza.json";
 
 /**
  * Design read: premium-consumer beauty salon landing page (redesign-overhaul),
@@ -41,163 +42,32 @@ const jost = Jost({
   variable: "--font-body",
 });
 
-const whatsappLink =
-  "https://wa.me/351912345678?text=Ola! Gostaria de marcar um horario no estudio.";
+const whatsappLink = salaoContent.contact.whatsapp;
+const salonAddress = salaoContent.brand.address;
+const salonPhone = salaoContent.brand.phone;
+const openingHours = salaoContent.contact.hours;
+const featureTriplet = salaoContent.features;
+const serviceCards = salaoContent.services;
 
-const salonAddress = "Rua das Flores, 123, 1200-001 Lisboa";
-const salonPhone = "+351 912 345 678";
-
-const openingHours = [
-  ["Segunda a Sexta", "09:30 - 19:30"],
-  ["Sabado", "09:30 - 17:00"],
-  ["Domingo", "Encerrado"],
-];
-
-const featureTriplet = [
-  {
-    number: "01",
-    title: "Atendimento de excelencia",
-    text: "Sem pressa, sem scripts.",
-  },
-  {
-    number: "02",
-    title: "Produtos cruelty-free",
-    text: "Marcas selecionadas com cuidado.",
-  },
-  {
-    number: "03",
-    title: "Equipa certificada",
-    text: "Formacao continua em cada area.",
-  },
-];
-
-const serviceCards = [
-  {
-    name: "Cabelo",
-    tagline: "Corte, cor e styling",
-    photoCaption: "Foto: servico de cabelo",
-  },
-  {
-    name: "Unhas",
-    tagline: "Manicure e pedicure",
-    photoCaption: "Foto: manicure e pedicure",
-  },
-  {
-    name: "Estetica facial",
-    tagline: "Limpeza e hidratacao",
-    photoCaption: "Foto: tratamento facial",
-  },
-];
-
-const pricingLeft = [
-  {
-    Icon: Scissors,
-    name: "Corte & Escova",
-    text: "Lavagem, corte e finalizacao",
-    price: "25 EUR",
-  },
-  {
-    Icon: Sparkle,
-    name: "Manicure",
-    text: "Verniz semipermanente incluido",
-    price: "18 EUR",
-  },
-  {
-    Icon: Drop,
-    name: "Limpeza de pele",
-    text: "Hidratacao profunda",
-    price: "30 EUR",
-  },
-];
-
-const pricingRight = [
-  {
-    Icon: PaintBrush,
-    name: "Maquilhagem",
-    text: "Para eventos e casamentos",
-    price: "35 EUR",
-  },
-  {
-    Icon: Leaf,
-    name: "Depilacao",
-    text: "Cera suave, resultado duradouro",
-    price: "12 EUR",
-  },
-  {
-    Icon: Eye,
-    name: "Design de sobrancelha",
-    text: "Com henna opcional",
-    price: "15 EUR",
-  },
-];
-
-const packages = [
-  {
-    title: "Pacote Noiva",
-    text: "Cabelo, maquilhagem e prova incluida",
-    photoCaption: "Foto: pacote noiva",
-  },
-  {
-    title: "Pacote Expresso",
-    text: "Manicure e escova em menos de uma hora",
-    photoCaption: "Foto: pacote expresso",
-  },
-];
-
-const team = [
-  {
-    name: "Marta Nogueira",
-    role: "Cabeleireira",
-    photo: "https://i.pravatar.cc/320?img=47",
-  },
-  {
-    name: "Beatriz Salgado",
-    role: "Esteticista",
-    photo: "https://i.pravatar.cc/320?img=32",
-  },
-  {
-    name: "Rita Coutinho",
-    role: "Manicure",
-    photo: "https://i.pravatar.cc/320?img=25",
-  },
-  {
-    name: "Sofia Lemos",
-    role: "Maquilhadora",
-    photo: "https://i.pravatar.cc/320?img=44",
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "Sai com o cabelo e as unhas impecaveis. Atendimento atento do inicio ao fim.",
-    author: "Marta S.",
-    role: "cliente ha 3 anos",
-  },
-  {
-    quote:
-      "Marcar pelo WhatsApp e tao pratico. O resultado supera sempre o que espero.",
-    author: "Catia R.",
-    role: "cliente",
-  },
-  {
-    quote: "Fui para uma limpeza de pele e voltei apaixonada pelo espaco.",
-    author: "Ines F.",
-    role: "cliente",
-  },
-];
+const pricing = salaoContent.pricing.map((item, index) => ({
+  ...item,
+  Icon: [Scissors, Sparkle, Drop, PaintBrush, Leaf, Eye][index],
+}));
+const pricingLeft = pricing.slice(0, 3);
+const pricingRight = pricing.slice(3);
+const packages = salaoContent.packages;
+const team = salaoContent.team;
+const testimonials = salaoContent.testimonials;
 
 export const metadata: Metadata = {
-  title: "Alma Studio de Beleza | Cuidado que revela a tua melhor versao",
-  description:
-    "Landing page editorial para um estudio de beleza, com foco em cabelo, unhas, estetica e marcacao via WhatsApp.",
+  title: salaoContent.metadata.title,
+  description: salaoContent.metadata.description,
   openGraph: {
     type: "website",
     locale: "pt_PT",
-    siteName: "Alma Studio de Beleza",
-    title: "Alma Studio de Beleza | Cuidado que revela a tua melhor versao",
-    description:
-      "Landing page editorial para um estudio de beleza, com foco em cabelo, unhas, estetica e marcacao via WhatsApp.",
+    siteName: salaoContent.brand.name,
+    title: salaoContent.metadata.title,
+    description: salaoContent.metadata.description,
   },
 };
 
@@ -241,7 +111,7 @@ function PhotoPlaceholder({
 export default function SalaoBelezaPage() {
   return (
     <div
-      className={`${cormorant.variable} ${jost.variable} min-h-screen bg-[#faf7f4] font-(family-name:--font-body) text-[#1c2024] selection:bg-[#e07856] selection:text-white`}
+      className={`${cormorant.variable} ${jost.variable} theme-salao-beleza min-h-screen bg-(--page) font-(family-name:--font-body) text-(--text) selection:bg-(--accent) selection:text-white`}
     >
       <header className="sticky top-0 z-50 border-b border-[#1c2024]/8 bg-[#faf7f4]/92 backdrop-blur-md">
         <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 lg:px-8">
@@ -712,7 +582,7 @@ export default function SalaoBelezaPage() {
                     className="flex-none text-[#e07856]"
                   />
                   <div>
-                    <p className="text-sm font-medium text-[#1c2024]">Morada</p>
+                    <p className="text-sm font-medium text-[#1c2024]">{salaoContent.labels.address}</p>
                     <p className="mt-1 text-sm text-[#54504c]">
                       {salonAddress}
                     </p>
@@ -835,7 +705,7 @@ export default function SalaoBelezaPage() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Instagram"
+                aria-label={salaoContent.labels.instagram}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1c2024]/12 text-[#1c2024] transition hover:border-[#e07856] hover:text-[#e07856]"
               >
                 <InstagramLogo size={16} weight="light" />
@@ -844,7 +714,7 @@ export default function SalaoBelezaPage() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Facebook"
+                aria-label={salaoContent.labels.facebook}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1c2024]/12 text-[#1c2024] transition hover:border-[#e07856] hover:text-[#e07856]"
               >
                 <FacebookLogo size={16} weight="light" />
@@ -853,7 +723,7 @@ export default function SalaoBelezaPage() {
                 href={whatsappLink}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="WhatsApp"
+                aria-label={salaoContent.labels.whatsapp}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-[#1c2024]/12 text-[#1c2024] transition hover:border-[#e07856] hover:text-[#e07856]"
               >
                 <WhatsappLogo size={16} weight="light" />

@@ -1,14 +1,10 @@
 // Replace with the client's real contact info
+import homeContent from "@/content/home.json";
+
 const WHATSAPP_NUMBER = "351000000000";
 const MAPS_URL = "https://www.google.com/maps";
 
-const services = [
-  "Serviço Essencial",
-  "Serviço Completo",
-  "Tratamento Premium",
-  "Pacote VIP",
-  "Plano Mensal",
-];
+const services = homeContent.footer.serviceItems;
 
 export default function Footer() {
   return (
@@ -33,7 +29,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-white/20 text-xs leading-relaxed mb-6">
-              Qualidade, excelência e dedicação em cada serviço. Portugal.
+              {homeContent.footer.description}
             </p>
             {/* Social links */}
             <div className="flex gap-3">
@@ -88,7 +84,7 @@ export default function Footer() {
           {/* Services */}
           <div>
             <p className="text-brand-gold/30 text-xs tracking-[0.3em] uppercase mb-5">
-              Serviços
+              {homeContent.footer.services}
             </p>
             <ul className="space-y-3">
               {services.map((s) => (
@@ -107,11 +103,11 @@ export default function Footer() {
           {/* Localização */}
           <div>
             <p className="text-brand-gold/30 text-xs tracking-[0.3em] uppercase mb-5">
-              Localização
+              {homeContent.footer.location}
             </p>
             <ul className="space-y-3 text-sm text-white/30">
-              <li>A sua cidade</li>
-              <li>Portugal</li>
+              <li>{homeContent.footer.city}</li>
+              <li>{homeContent.footer.country}</li>
               <li className="pt-1">
                 <a
                   href={MAPS_URL}
@@ -119,7 +115,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-brand-gold/40 hover:text-brand-gold transition-colors"
                 >
-                  Google Maps →
+                  {homeContent.footer.maps} -
                 </a>
               </li>
             </ul>
@@ -128,7 +124,7 @@ export default function Footer() {
           {/* Horário */}
           <div>
             <p className="text-brand-gold/30 text-xs tracking-[0.3em] uppercase mb-5">
-              Horário
+              {homeContent.footer.hours}
             </p>
             <ul className="space-y-3 text-sm">
               <li className="flex justify-between text-white/30">
@@ -148,8 +144,8 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/15 tracking-wide">
-          <p>© 2026 O Seu Negócio. Todos os direitos reservados.</p>
-          <p>Portugal · Desenvolvido por L8 Studio</p>
+          <p>© 2026 O Seu Negócio. {homeContent.footer.copyright}</p>
+          <p>{homeContent.footer.developedBy}</p>
         </div>
       </div>
     </footer>

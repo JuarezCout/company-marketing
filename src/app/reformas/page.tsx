@@ -17,6 +17,7 @@ import {
   Quotes,
   Wrench,
 } from "@phosphor-icons/react/dist/ssr";
+import reformasContent from "@/content/reformas.json";
 
 /**
  * Redesign of /reformas following the redesign-existing-projects audit,
@@ -37,60 +38,26 @@ const karla = Karla({
   variable: "--font-body",
 });
 
-const whatsappLink =
-  "https://wa.me/351223000000?text=Ola! Preciso de um servico para minha casa.";
-
-const companyPhone = "+351 223 000 000";
-const companyEmail = "ola@casacerta.pt";
-const companyAddress = "Rua do Trabalho, 73, 3000-001 Coimbra";
-const openingHours = [
-  ["Segunda a Sexta", "08:00 - 19:00"],
-  ["Sabado", "09:00 - 13:00"],
-];
-
-const categories = [
-  { name: "Canalizacao", Icon: Wrench },
-  { name: "Eletricidade", Icon: LightningA },
-  { name: "Montagem de Moveis", Icon: Armchair },
-  { name: "Limpeza da Casa", Icon: Broom },
-  { name: "Portas & Fechaduras", Icon: Door },
-  { name: "Pintura", Icon: PaintRoller },
-];
-
-const faqs = [
-  {
-    question: "Trabalham aos fins de semana?",
-    answer:
-      "Sim, temos disponibilidade ao sabado de manha para reparacoes e manutencao. Urgencias sao avaliadas caso a caso.",
-  },
-  {
-    question: "Os profissionais tem experiencia comprovada?",
-    answer:
-      "Toda a equipa tem pelo menos 5 anos de experiencia e trabalha connosco de forma continua, nao subcontratada.",
-  },
-  {
-    question: "Dao garantia sobre o servico?",
-    answer:
-      "Sim, todos os servicos tem garantia por escrito. Se algo nao ficar bem, voltamos sem custo adicional.",
-  },
-  {
-    question: "Com que rapidez conseguem responder?",
-    answer:
-      "Para pedidos normais respondemos no mesmo dia util. Para urgencias, tentamos ter alguem no local em poucas horas.",
-  },
-];
+const whatsappLink = reformasContent.contact.whatsapp;
+const companyPhone = reformasContent.brand.phone;
+const companyEmail = reformasContent.brand.email;
+const companyAddress = reformasContent.brand.address;
+const openingHours = reformasContent.contact.hours;
+const categories = reformasContent.serviceCategories.map((name, index) => ({
+  name,
+  Icon: [Wrench, LightningA, Armchair, Broom, Door, PaintRoller][index],
+}));
+const faqs = reformasContent.faq;
 
 export const metadata: Metadata = {
-  title: "Casa Certa | Reformas, consertos e servicos gerais",
-  description:
-    "Landing page para uma empresa de servicos domesticos: reformas, consertos e manutencao geral, com marcacao via WhatsApp.",
+  title: reformasContent.metadata.title,
+  description: reformasContent.metadata.description,
   openGraph: {
     type: "website",
     locale: "pt_PT",
-    siteName: "Casa Certa",
-    title: "Casa Certa | Reformas, consertos e servicos gerais",
-    description:
-      "Landing page para uma empresa de servicos domesticos: reformas, consertos e manutencao geral, com marcacao via WhatsApp.",
+    siteName: reformasContent.brand.name,
+    title: reformasContent.metadata.title,
+    description: reformasContent.metadata.description,
   },
 };
 
@@ -124,9 +91,7 @@ function PhotoCaption({ caption }: { caption: string }) {
 
 export default function ReformasPage() {
   return (
-    <div
-      className={`${archivo.variable} ${karla.variable} min-h-screen bg-[#fbe9d8] font-(family-name:--font-body) text-[#241512] selection:bg-[#e2793a] selection:text-white`}
-    >
+    <div className={`${archivo.variable} ${karla.variable} theme-reformas min-h-screen bg-(--page) font-(family-name:--font-body) text-(--text) selection:bg-(--accent) selection:text-white`}>
       <header className="sticky top-0 z-50 border-b border-[#241512]/10 bg-[#fbe9d8]/92 backdrop-blur-md">
         <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 lg:px-8">
           <div className="flex items-center gap-3">

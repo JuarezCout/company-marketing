@@ -1,4 +1,5 @@
 import Link from "next/link";
+import homeContent from "@/content/home.json";
 import { templates } from "@/data/templates";
 
 export default function TemplateShowcase() {
@@ -7,31 +8,35 @@ export default function TemplateShowcase() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-12 text-center">
           <p className="text-brand-gold/60 text-xs tracking-[0.35em] uppercase mb-4">
-            Templates prontos
+            {homeContent.showcase.eyebrow}
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight">
-            Soluções para cada tipo de negócio
+            {homeContent.showcase.title}
           </h2>
         </div>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {templates.map((template) => (
+          {homeContent.showcase.items.map((template) => {
+            const theme = templates.find((item) => item.slug === template.slug);
+            if (!theme) return null;
+
+            return (
             <article
               key={template.slug}
               className="group border border-brand-gold/15 bg-brand-green/40 p-6 transition-transform duration-300 hover:-translate-y-1 hover:border-brand-gold/40"
             >
-              <div className="flex items-center justify-between mb-6">
+              <div className="flex flex-col items-start gap-3 mb-6 sm:flex-row sm:items-start sm:justify-between">
                 <span
-                  className="px-3 py-1 text-[10px] tracking-[0.2em] uppercase"
+                  className="max-w-full break-words px-3 py-1 text-[10px] leading-relaxed tracking-[0.2em] uppercase"
                   style={{
-                    background: template.accentSoft,
-                    color: template.accent,
-                    border: `1px solid ${template.accent}33`,
+                    background: theme.accentSoft,
+                    color: theme.accent,
+                    border: `1px solid ${theme.accent}33`,
                   }}
                 >
                   {template.category}
                 </span>
-                <span className="text-brand-gold text-xs uppercase tracking-[0.3em]">
+                <span className="max-w-full text-left text-brand-gold text-xs leading-relaxed tracking-[0.3em] uppercase sm:max-w-[45%] sm:text-right">
                   {template.label}
                 </span>
               </div>
@@ -45,12 +50,12 @@ export default function TemplateShowcase() {
 
               <div className="mb-6 space-y-3 text-sm text-white/70">
                 {template.services.slice(0, 2).map((service) => (
-                  <div key={service.title} className="flex items-start gap-3">
+                  <div key={service} className="flex items-start gap-3">
                     <span
                       className="mt-1 inline-block h-2 w-2 rounded-full"
-                      style={{ backgroundColor: template.accent }}
+                      style={{ backgroundColor: theme.accent }}
                     />
-                    <span>{service.title}</span>
+                    <span>{service}</span>
                   </div>
                 ))}
               </div>
@@ -59,11 +64,12 @@ export default function TemplateShowcase() {
                 href={`/${template.slug}`}
                 className="inline-flex items-center gap-2 text-brand-gold font-semibold tracking-[0.15em] uppercase text-xs"
               >
-                Ver demo
+                {homeContent.showcase.demo}
                 <span aria-hidden="true">→</span>
               </Link>
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

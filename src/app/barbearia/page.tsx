@@ -16,6 +16,8 @@ import {
   Star,
   WhatsappLogo,
 } from "@phosphor-icons/react/dist/ssr";
+import barbeariaContent from "@/content/barbearia.json";
+import barbeariaImages from "@/content/images/barbearia.json";
 
 /**
  * Redesign of /barbearia following the redesign-existing-projects audit,
@@ -36,62 +38,23 @@ const workSans = Work_Sans({
   variable: "--font-body",
 });
 
-const whatsappLink =
-  "https://wa.me/351210000000?text=Ola! Gostaria de marcar um horario na barbearia.";
-
-const shopAddress = "Rua do Corte, 45, 1200-002 Lisboa";
-const shopPhone = "+351 210 000 000";
-const openingHours = [
-  ["Segunda a Sexta", "09:00 - 20:00"],
-  ["Sabado", "09:00 - 18:00"],
-  ["Domingo", "Encerrado"],
-];
-
-const prices = [
-  { name: "Corte", price: "22 EUR" },
-  { name: "Barba", price: "16 EUR" },
-  { name: "Corte + Barba", price: "35 EUR" },
-  { name: "Aparar de barba", price: "12 EUR" },
-  { name: "Tratamento capilar", price: "18 EUR" },
-];
-
-const gallery = [
-  "Foto: corte finalizado",
-  "Foto: modelagem de barba",
-  "Foto: acabamento a navalha",
-  "Foto: styling em curso",
-  "Foto: cliente satisfeito",
-];
-
-const team = [
-  {
-    name: "Tiago Alves",
-    role: "Master Barber",
-    photo: "https://i.pravatar.cc/320?img=12",
-  },
-  {
-    name: "Rui Ferreira",
-    role: "Barbeiro",
-    photo: "https://i.pravatar.cc/320?img=33",
-  },
-  {
-    name: "Andre Costa",
-    role: "Barbeiro Junior",
-    photo: "https://i.pravatar.cc/320?img=15",
-  },
-];
+const whatsappLink = barbeariaContent.contact.whatsapp;
+const shopAddress = barbeariaContent.brand.address;
+const shopPhone = barbeariaContent.brand.phone;
+const openingHours = barbeariaContent.contact.hours;
+const prices = barbeariaContent.prices;
+const gallery = barbeariaImages.gallery;
+const team = barbeariaContent.team;
 
 export const metadata: Metadata = {
-  title: "Malta Barbearia | Onde a tradicao encontra o estilo moderno",
-  description:
-    "Landing page para uma barbearia de bairro, com marcacao rapida, localizacao, precos e equipa.",
+  title: barbeariaContent.metadata.title,
+  description: barbeariaContent.metadata.description,
   openGraph: {
     type: "website",
     locale: "pt_PT",
-    siteName: "Malta Barbearia",
-    title: "Malta Barbearia | Onde a tradicao encontra o estilo moderno",
-    description:
-      "Landing page para uma barbearia de bairro, com marcacao rapida, localizacao, precos e equipa.",
+    siteName: barbeariaContent.brand.name,
+    title: barbeariaContent.metadata.title,
+    description: barbeariaContent.metadata.description,
   },
 };
 
@@ -135,7 +98,7 @@ function PhotoPlaceholder({
 export default function BarbeariaPage() {
   return (
     <div
-      className={`${oswald.variable} ${workSans.variable} min-h-screen bg-[#ece3d3] font-(family-name:--font-body) text-[#241a14] selection:bg-[#e0893f] selection:text-white`}
+      className={`${oswald.variable} ${workSans.variable} theme-barbearia min-h-screen bg-(--page) font-(family-name:--font-body) text-(--text) selection:bg-(--accent) selection:text-white`}
     >
       <header className="sticky top-0 z-50 border-b border-[#241a14]/10 bg-[#ece3d3]/92 backdrop-blur-md">
         <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 lg:px-8">
@@ -196,7 +159,7 @@ export default function BarbeariaPage() {
                     id="name"
                     name="name"
                     type="text"
-                    placeholder="O teu nome"
+                    placeholder={barbeariaContent.labels.namePlaceholder}
                     className="w-full rounded-lg border border-white/15 bg-[#241a14] px-3.5 py-2.5 text-sm text-white placeholder:text-white/35 focus:border-[#e0893f] focus:outline-none"
                   />
                 </div>
@@ -212,7 +175,7 @@ export default function BarbeariaPage() {
                     id="phone"
                     name="phone"
                     type="tel"
-                    placeholder="+351 900 000 000"
+                    placeholder={barbeariaContent.labels.phonePlaceholder}
                     className="w-full rounded-lg border border-white/15 bg-[#241a14] px-3.5 py-2.5 text-sm text-white placeholder:text-white/35 focus:border-[#e0893f] focus:outline-none"
                   />
                 </div>
@@ -230,10 +193,9 @@ export default function BarbeariaPage() {
                     className="w-full rounded-lg border border-white/15 bg-[#241a14] px-3.5 py-2.5 text-sm text-white focus:border-[#e0893f] focus:outline-none"
                     defaultValue="Corte"
                   >
-                    <option>Corte</option>
-                    <option>Barba</option>
-                    <option>Corte + Barba</option>
-                    <option>Tratamento capilar</option>
+                    {prices.map((price) => (
+                      <option key={price.name}>{price.name}</option>
+                    ))}
                   </select>
                 </div>
 
@@ -254,7 +216,7 @@ export default function BarbeariaPage() {
                       id="slot"
                       name="slot"
                       type="text"
-                      placeholder="Ex: Sabado, 15h"
+                      placeholder={barbeariaContent.labels.datePlaceholder}
                       className="w-full rounded-lg border border-white/15 bg-[#241a14] py-2.5 pl-10 pr-3.5 text-sm text-white placeholder:text-white/35 focus:border-[#e0893f] focus:outline-none"
                     />
                   </div>
@@ -396,10 +358,10 @@ export default function BarbeariaPage() {
             </div>
 
             <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
-              {gallery.map((caption) => (
+              {gallery.map((image) => (
                 <PhotoPlaceholder
-                  key={caption}
-                  caption={caption}
+                  key={image.caption}
+                  caption={image.caption}
                   tone="cream"
                   className="h-64 w-64 flex-none snap-start"
                 />
@@ -447,7 +409,7 @@ export default function BarbeariaPage() {
                 <Star size={14} weight="fill" />
                 <Star size={14} weight="fill" />
               </div>
-              <p className="mt-3 text-sm font-medium">Ricardo M.</p>
+              <p className="mt-3 text-sm font-medium">{barbeariaContent.labels.reviewAuthor}</p>
             </div>
           </div>
         </section>
@@ -563,7 +525,7 @@ export default function BarbeariaPage() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Instagram"
+                aria-label={barbeariaContent.labels.instagram}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition hover:border-[#e0893f] hover:text-[#e0893f]"
               >
                 <InstagramLogo size={16} weight="light" />
@@ -572,7 +534,7 @@ export default function BarbeariaPage() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Facebook"
+                aria-label={barbeariaContent.labels.facebook}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition hover:border-[#e0893f] hover:text-[#e0893f]"
               >
                 <FacebookLogo size={16} weight="light" />
@@ -581,7 +543,7 @@ export default function BarbeariaPage() {
                 href={whatsappLink}
                 target="_blank"
                 rel="noreferrer"
-                aria-label="WhatsApp"
+                aria-label={barbeariaContent.labels.whatsapp}
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition hover:border-[#e0893f] hover:text-[#e0893f]"
               >
                 <WhatsappLogo size={16} weight="light" />

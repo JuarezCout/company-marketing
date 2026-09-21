@@ -14,6 +14,7 @@ import {
   Pulse,
   Quotes,
 } from "@phosphor-icons/react/dist/ssr";
+import saudeContent from "@/content/saude.json";
 
 /**
  * Redesign of /saude following the redesign-existing-projects audit,
@@ -34,67 +35,27 @@ const manrope = Manrope({
   variable: "--font-body",
 });
 
-const whatsappLink =
-  "https://wa.me/351214000000?text=Ola! Gostaria de marcar uma avaliacao de fisioterapia.";
+const whatsappLink = saudeContent.contact.whatsapp;
+const clinicAddress = saudeContent.brand.address;
+const clinicPhone = saudeContent.brand.phone;
+const openingHours = saudeContent.contact.hours;
 
-const clinicAddress = "Praca da Saude, 10, 8000-001 Faro";
-const clinicPhone = "+351 214 000 000";
-const openingHours = [
-  ["Segunda a Sexta", "08:00 - 20:00"],
-  ["Sabado", "09:00 - 13:00"],
-  ["Domingo", "Encerrado"],
-];
+const services = saudeContent.services.map((service, index) => ({
+  ...service,
+  Icon: [HandsClapping, FirstAid, Pulse][index],
+}));
 
-const services = [
-  {
-    name: "Terapia Manual",
-    text: "Tecnicas manuais para aliviar tensao muscular e restaurar mobilidade.",
-    Icon: HandsClapping,
-    photoCaption: "Foto: sessao de terapia manual",
-  },
-  {
-    name: "Reabilitacao de Lesoes",
-    text: "Planos a medida para recuperares de lesoes com mais forca e confianca.",
-    Icon: FirstAid,
-    photoCaption: "Foto: reabilitacao pos-lesao",
-  },
-  {
-    name: "Gestao da Dor",
-    text: "Tratamentos baseados em evidencia para dores cronicas nas costas e articulacoes.",
-    Icon: Pulse,
-    photoCaption: "Foto: avaliacao de mobilidade",
-  },
-];
-
-const steps = [
-  {
-    number: "01",
-    title: "Avaliacao",
-    text: "Percebemos a tua condicao, historico e objetivos numa consulta detalhada.",
-  },
-  {
-    number: "02",
-    title: "Plano de Tratamento",
-    text: "Definimos um plano personalizado, com tecnicas e frequencia adequadas.",
-  },
-  {
-    number: "03",
-    title: "Acompanhamento Continuo",
-    text: "Seguimos o teu progresso e ajustamos o plano ao longo da recuperacao.",
-  },
-];
+const steps = saudeContent.steps;
 
 export const metadata: Metadata = {
-  title: "Vita Fisioterapia | Recuperar. Reconstruir. Recomecar",
-  description:
-    "Landing page para uma clinica de fisioterapia, com marcacao de consulta, servicos, processo de recuperacao e avaliacoes.",
+  title: saudeContent.metadata.title,
+  description: saudeContent.metadata.description,
   openGraph: {
     type: "website",
     locale: "pt_PT",
-    siteName: "Vita Fisioterapia",
-    title: "Vita Fisioterapia | Recuperar. Reconstruir. Recomecar",
-    description:
-      "Landing page para uma clinica de fisioterapia, com marcacao de consulta, servicos, processo de recuperacao e avaliacoes.",
+    siteName: saudeContent.brand.name,
+    title: saudeContent.metadata.title,
+    description: saudeContent.metadata.description,
   },
 };
 
@@ -130,7 +91,7 @@ function PhotoCaption({ caption }: { caption: string }) {
 export default function SaudePage() {
   return (
     <div
-      className={`${sora.variable} ${manrope.variable} min-h-screen bg-[#eef3e6] font-(family-name:--font-body) text-[#16241b] selection:bg-[#7fb37a] selection:text-white`}
+      className={`${sora.variable} ${manrope.variable} theme-saude min-h-screen bg-(--page) font-(family-name:--font-body) text-(--text) selection:bg-(--accent) selection:text-white`}
     >
       <header className="sticky top-0 z-50 border-b border-[#16241b]/10 bg-[#eef3e6]/92 backdrop-blur-md">
         <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 lg:px-8">
@@ -183,7 +144,7 @@ export default function SaudePage() {
             <div className="max-w-xl">
               <h1 className="font-(family-name:--font-display) text-4xl font-bold leading-[1.1] text-white md:text-5xl">
                 Recuperar. Reconstruir.{" "}
-                <span className="text-[#8fd488]">Recomecar.</span>
+                <span className="text-[#8fd488]">{saudeContent.labels.restart}</span>
               </h1>
               <p className="mt-6 max-w-md text-base leading-relaxed text-white/70">
                 Cuidados de fisioterapia personalizados para restaurares forca,
@@ -208,7 +169,7 @@ export default function SaudePage() {
                     id="name"
                     name="name"
                     type="text"
-                    placeholder="O teu nome"
+                    placeholder={saudeContent.labels.namePlaceholder}
                     className="w-full rounded-lg border border-white/15 bg-[#0f1f17] px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-[#7fb37a] focus:outline-none"
                   />
                 </div>
@@ -225,7 +186,7 @@ export default function SaudePage() {
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="email@exemplo.com"
+                      placeholder={saudeContent.labels.emailPlaceholder}
                       className="w-full rounded-lg border border-white/15 bg-[#0f1f17] px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-[#7fb37a] focus:outline-none"
                     />
                   </div>
@@ -240,7 +201,7 @@ export default function SaudePage() {
                       id="phone"
                       name="phone"
                       type="tel"
-                      placeholder="+351 900 000 000"
+                      placeholder={saudeContent.labels.phonePlaceholder}
                       className="w-full rounded-lg border border-white/15 bg-[#0f1f17] px-3.5 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-[#7fb37a] focus:outline-none"
                     />
                   </div>
@@ -263,7 +224,7 @@ export default function SaudePage() {
                       id="slot"
                       name="slot"
                       type="text"
-                      placeholder="Ex: Terca, 10h"
+                      placeholder={saudeContent.labels.datePlaceholder}
                       className="w-full rounded-lg border border-white/15 bg-[#0f1f17] py-2.5 pl-10 pr-3.5 text-sm text-white placeholder:text-white/30 focus:border-[#7fb37a] focus:outline-none"
                     />
                   </div>
@@ -323,7 +284,7 @@ export default function SaudePage() {
           <div className="mx-auto max-w-7xl">
             <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <h2 className="font-(family-name:--font-display) text-3xl font-bold text-[#16241b] md:text-4xl">
-                Servicos de <span className="text-[#4f7a4a]">Fisioterapia</span>
+                Servicos de <span className="text-[#4f7a4a]">{saudeContent.labels.servicesAccent}</span>
               </h2>
               <a
                 href={whatsappLink}
@@ -432,7 +393,7 @@ export default function SaudePage() {
                 <p className="text-sm font-semibold text-[#16241b]">
                   Fernando A.
                 </p>
-                <p className="text-xs text-[#5c6b57]">Paciente</p>
+                <p className="text-xs text-[#5c6b57]">{saudeContent.labels.patient}</p>
               </div>
             </div>
           </div>
@@ -448,7 +409,7 @@ export default function SaudePage() {
                 className="flex-none text-[#4f7a4a]"
               />
               <div>
-                <p className="text-sm font-semibold text-[#16241b]">Morada</p>
+                <p className="text-sm font-semibold text-[#16241b]">{saudeContent.labels.address}</p>
                 <p className="mt-1 text-sm text-[#5c6b57]">{clinicAddress}</p>
               </div>
             </div>
@@ -459,7 +420,7 @@ export default function SaudePage() {
                 className="flex-none text-[#4f7a4a]"
               />
               <div>
-                <p className="text-sm font-semibold text-[#16241b]">Telefone</p>
+                <p className="text-sm font-semibold text-[#16241b]">{saudeContent.labels.phone}</p>
                 <p className="mt-1 text-sm text-[#5c6b57]">{clinicPhone}</p>
               </div>
             </div>

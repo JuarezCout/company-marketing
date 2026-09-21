@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import banhoContent from "@/content/banho-e-cozinha.json";
 
 type IconProps = { className?: string };
 
@@ -325,40 +326,10 @@ const services = [
     price: "desde €80",
     Icon: LightIcon,
   },
-];
+].map((service, index) => ({ ...banhoContent.services[index], Icon: service.Icon }));
 
-const reasons = [
-  {
-    title: "Orçamento em 7 dias",
-    text: "Recebes uma proposta detalhada e com preços fechados em menos de uma semana.",
-  },
-  {
-    title: "Design pensado para ti",
-    text: "Cada projeto é desenhado à medida do teu espaço, estilo e forma de o usar no dia a dia.",
-  },
-  {
-    title: "Acabamento premium",
-    text: "Materiais selecionados e mão de obra especializada garantem um resultado duradouro.",
-  },
-];
-
-const steps = [
-  {
-    number: "01",
-    title: "Reunião e objetivos",
-    text: "Percebemos o espaço, o orçamento disponível e o estilo que procuras para a tua casa.",
-  },
-  {
-    number: "02",
-    title: "Design do projeto",
-    text: "Apresentamos o design, os materiais e o cronograma antes de qualquer trabalho começar.",
-  },
-  {
-    number: "03",
-    title: "Execução e acabamento",
-    text: "Instalação cuidada com revisão final contigo para garantir cada detalhe do resultado.",
-  },
-];
+const reasons = banhoContent.reasons;
+const steps = banhoContent.steps;
 
 const testimonials = [
   {
@@ -378,34 +349,26 @@ const testimonials = [
   },
 ];
 
-const whatsappLink =
-  "https://wa.me/351219000000?text=Olá! Gostaria de pedir um orçamento para remodelação.";
-
-const companyAddress = "Av. do Design, 99, 2710-001 Sintra";
-const companyPhone = "+351 219 000 000";
-const openingHours = [
-  ["Segunda a Sexta", "09:00 – 19:00"],
-  ["Sábado", "10:00 – 14:00"],
-  ["Domingo", "Encerrado"],
-];
+const whatsappLink = banhoContent.contact.whatsapp;
+const companyAddress = banhoContent.brand.address;
+const companyPhone = banhoContent.brand.phone;
+const openingHours = banhoContent.contact.hours;
 
 export const metadata: Metadata = {
-  title: "Banho & Cozinha | Design premium para o teu espaço",
-  description:
-    "Landing page para uma empresa de remodelação de cozinhas e casas de banho, com foco em design premium e conversão via WhatsApp.",
+  title: banhoContent.metadata.title,
+  description: banhoContent.metadata.description,
   openGraph: {
     type: "website",
     locale: "pt_PT",
-    siteName: "Banho & Cozinha",
-    title: "Banho & Cozinha | Design premium para o teu espaço",
-    description:
-      "Landing page para uma empresa de remodelação de cozinhas e casas de banho, com foco em design premium e conversão via WhatsApp.",
+    siteName: banhoContent.brand.name,
+    title: banhoContent.metadata.title,
+    description: banhoContent.metadata.description,
   },
 };
 
 export default function BanhoECozinhaPage() {
   return (
-    <div className="min-h-screen bg-[#17120d] text-[#fff5ea] selection:bg-[#f9c74f] selection:text-[#17120d]">
+    <div className="theme-banho-e-cozinha min-h-screen bg-(--page) text-(--text) selection:bg-(--accent) selection:text-(--text)">
       <header className="sticky top-0 z-50 border-b border-[#f9c74f]/12 bg-[#17120d]/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
           <div className="flex items-center gap-3">
@@ -769,7 +732,7 @@ export default function BanhoECozinhaPage() {
                 <div className="flex gap-4 rounded-2xl border border-[#f9c74f]/15 bg-[#201a17] p-6">
                   <PinIcon className="h-5 w-5 flex-none text-[#f9c74f]" />
                   <div>
-                    <p className="text-sm font-semibold text-white">Showroom</p>
+                    <p className="text-sm font-semibold text-white">{banhoContent.labels.showroom}</p>
                     <p className="mt-1 text-sm text-[#f4dcc3]">
                       {companyAddress}
                     </p>

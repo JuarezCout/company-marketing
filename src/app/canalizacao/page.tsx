@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import canalizacaoContent from "@/content/canalizacao.json";
 
 type IconProps = { className?: string };
 
@@ -319,40 +320,10 @@ const services = [
     price: "sob orçamento",
     Icon: PipeIcon,
   },
-];
+].map((service, index) => ({ ...canalizacaoContent.services[index], Icon: service.Icon }));
 
-const reasons = [
-  {
-    title: "Atendimento 24 horas",
-    text: "Emergências não esperam. Estamos disponíveis a qualquer hora, todos os dias da semana.",
-  },
-  {
-    title: "Técnicos certificados",
-    text: "Equipa qualificada e equipada para resolver desde pequenas reparações a instalações complexas.",
-  },
-  {
-    title: "Diagnóstico transparente",
-    text: "Avaliamos o problema no local e explicamos o custo antes de qualquer intervenção.",
-  },
-];
-
-const steps = [
-  {
-    number: "01",
-    title: "Contacto e diagnóstico",
-    text: "Descreves o problema por WhatsApp ou telefone e fazemos uma primeira avaliação.",
-  },
-  {
-    number: "02",
-    title: "Visita técnica",
-    text: "Um técnico desloca-se ao local, confirma o diagnóstico e apresenta o plano de ação.",
-  },
-  {
-    number: "03",
-    title: "Reparação e garantia",
-    text: "Resolvemos o problema com garantia do serviço, seja urgência ou manutenção programada.",
-  },
-];
+const reasons = canalizacaoContent.reasons;
+const steps = canalizacaoContent.steps;
 
 const testimonials = [
   {
@@ -372,34 +343,26 @@ const testimonials = [
   },
 ];
 
-const whatsappLink =
-  "https://wa.me/351211000000?text=Olá! Preciso de assistência de canalização.";
-
-const companyAddress = "Rua da Água, 5, 4400-001 Vila Nova de Gaia";
-const companyPhone = "+351 211 000 000";
-const openingHours = [
-  ["Urgências", "24 horas / 7 dias"],
-  ["Atendimento programado", "Seg a Sex, 08:00 – 19:00"],
-  ["Sábado", "09:00 – 13:00"],
-];
+const whatsappLink = canalizacaoContent.contact.whatsapp;
+const companyAddress = canalizacaoContent.brand.address;
+const companyPhone = canalizacaoContent.brand.phone;
+const openingHours = canalizacaoContent.contact.hours;
 
 export const metadata: Metadata = {
-  title: "Canalização & Assistência | Resposta rápida e profissional",
-  description:
-    "Landing page para uma empresa de canalização e assistência técnica, com foco em urgências 24/7 e conversão via WhatsApp.",
+  title: canalizacaoContent.metadata.title,
+  description: canalizacaoContent.metadata.description,
   openGraph: {
     type: "website",
     locale: "pt_PT",
-    siteName: "Canalização & Assistência",
-    title: "Canalização & Assistência | Resposta rápida e profissional",
-    description:
-      "Landing page para uma empresa de canalização e assistência técnica, com foco em urgências 24/7 e conversão via WhatsApp.",
+    siteName: canalizacaoContent.brand.name,
+    title: canalizacaoContent.metadata.title,
+    description: canalizacaoContent.metadata.description,
   },
 };
 
 export default function CanalizacaoPage() {
   return (
-    <div className="min-h-screen bg-[#0d1419] text-[#ebf8ff] selection:bg-[#7dd3fc] selection:text-[#0d1419]">
+    <div className="theme-canalizacao min-h-screen bg-(--page) text-(--text) selection:bg-(--accent) selection:text-(--text)">
       <header className="sticky top-0 z-50 border-b border-[#7dd3fc]/12 bg-[#0d1419]/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
           <div className="flex items-center gap-3">
