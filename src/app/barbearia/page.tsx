@@ -59,14 +59,16 @@ export const metadata: Metadata = {
 };
 
 type PhotoPlaceholderProps = {
-  caption: string;
+  src?: string;
+  alt: string;
   className?: string;
   tone?: "dark" | "cream";
 };
 
 /** Honest stand-in for real barbershop photography (no image-gen tool available in this session). */
 function PhotoPlaceholder({
-  caption,
+  src,
+  alt,
   className,
   tone = "dark",
 }: PhotoPlaceholderProps) {
@@ -79,18 +81,14 @@ function PhotoPlaceholder({
           : "bg-[linear-gradient(135deg,#e4d6bf_0%,#ece3d3_100%)]"
       } ${className ?? ""}`}
     >
-      <div className="flex items-center gap-2 p-3">
-        <Camera
-          size={15}
-          weight="light"
-          className={isDark ? "text-white/60" : "text-[#7a6a55]"}
+      {src ? (
+        <img
+          src={src}
+          alt={alt}
+          className="h-full w-full object-cover"
+          loading="lazy"
         />
-        <span
-          className={`text-xs ${isDark ? "text-white/60" : "text-[#7a6a55]"}`}
-        >
-          {caption}
-        </span>
-      </div>
+      ) : null}
     </div>
   );
 }
@@ -297,7 +295,8 @@ export default function BarbeariaPage() {
             </div>
 
             <PhotoPlaceholder
-              caption="Mapa: localizacao da barbearia"
+              src={barbeariaImages.location.src}
+              alt={barbeariaImages.location.alt}
               className="h-52 w-full"
             />
 
@@ -361,7 +360,8 @@ export default function BarbeariaPage() {
               {gallery.map((image) => (
                 <PhotoPlaceholder
                   key={image.caption}
-                  caption={image.caption}
+                  src={image.src}
+                  alt={image.alt}
                   tone="cream"
                   className="h-64 w-64 flex-none snap-start"
                 />
@@ -409,7 +409,9 @@ export default function BarbeariaPage() {
                 <Star size={14} weight="fill" />
                 <Star size={14} weight="fill" />
               </div>
-              <p className="mt-3 text-sm font-medium">{barbeariaContent.labels.reviewAuthor}</p>
+              <p className="mt-3 text-sm font-medium">
+                {barbeariaContent.labels.reviewAuthor}
+              </p>
             </div>
           </div>
         </section>

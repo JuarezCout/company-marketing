@@ -1,11 +1,84 @@
 {
-  "brand": { "name": "Malta Barbearia", "mark": "M", "phone": "+351 210 000 000", "address": "Rua do Corte, 45, 1200-002 Lisboa", "email": "ola@maltabarbearia.pt" },
-  "metadata": { "title": "Malta Barbearia | Onde a tradicao encontra o estilo moderno", "description": "Landing page para uma barbearia de bairro, com marcacao rapida, localizacao, precos e equipa." },
-  "contact": { "whatsapp": "https://wa.me/351210000000?text=Ola! Gostaria de marcar um horario na barbearia.", "hours": [["Segunda a Sexta", "09:00 - 20:00"], ["Sabado", "09:00 - 18:00"], ["Domingo", "Encerrado"]] },
-  "hero": { "eyebrow": "Marcacao rapida", "title": "Onde a tradicao encontra o estilo moderno.", "description": "Cortes classicos e modernos, num ambiente que respeita o oficio e cuida de cada detalhe.", "cta": "Marcar horario", "secondaryCta": "Ver trabalhos", "form": { "name": "Nome", "namePlaceholder": "O teu nome", "phone": "Telefone", "phonePlaceholder": "+351 900 000 000", "service": "Servico", "date": "Horario preferido", "datePlaceholder": "Ex: Sabado, 15h", "submit": "Pedir marcacao", "note": "Confirmamos a tua marcacao por WhatsApp." } },
-  "stats": [["4.8/5", "Avaliacao"], ["1.2k+", "Clientes"], ["12 anos", "De oficio"]],
-  "gallery": ["Foto: corte finalizado", "Foto: modelagem de barba", "Foto: acabamento a navalha", "Foto: styling em curso", "Foto: cliente satisfeito"],
-  "prices": [{ "name": "Corte", "price": "22 EUR" }, { "name": "Barba", "price": "16 EUR" }, { "name": "Corte + Barba", "price": "35 EUR" }, { "name": "Aparar de barba", "price": "12 EUR" }, { "name": "Tratamento capilar", "price": "18 EUR" }],
-  "team": [{ "name": "Tiago Alves", "role": "Master Barber", "photo": "https://i.pravatar.cc/320?img=12" }, { "name": "Rui Ferreira", "role": "Barbeiro", "photo": "https://i.pravatar.cc/320?img=33" }, { "name": "Andre Costa", "role": "Barbeiro Junior", "photo": "https://i.pravatar.cc/320?img=15" }],
-  "labels": { "instagram": "Instagram", "facebook": "Facebook", "whatsapp": "WhatsApp", "namePlaceholder": "O teu nome", "phonePlaceholder": "+351 900 000 000", "datePlaceholder": "Ex: Sabado, 15h", "reviewAuthor": "Ricardo M." }
+  "brand": {
+    "name": "Malta Barbearia",
+    "mark": "M",
+    "phone": "+351 210 000 000",
+    "address": "Rua do Corte, 45, 1200-002 Lisboa",
+    "email": "ola@maltabarbearia.pt"
+  },
+  "metadata": {
+    "title": "Malta Barbearia | Onde a tradicao encontra o estilo moderno",
+    "description": "Landing page para uma barbearia de bairro, com marcacao rapida, localizacao, precos e equipa."
+  },
+  "contact": {
+    "whatsapp": "https://wa.me/351210000000?text=Ola! Gostaria de marcar um horario na barbearia.",
+    "hours": [
+      ["Segunda a Sexta", "09:00 - 20:00"],
+      ["Sabado", "09:00 - 18:00"],
+      ["Domingo", "Encerrado"]
+    ]
+  },
+  "hero": {
+    "eyebrow": "Marcacao rapida",
+    "title": "Onde a tradicao encontra o estilo moderno.",
+    "description": "Cortes classicos e modernos, num ambiente que respeita o oficio e cuida de cada detalhe.",
+    "cta": "Marcar horario",
+    "secondaryCta": "Ver trabalhos",
+    "form": {
+      "name": "Nome",
+      "namePlaceholder": "O teu nome",
+      "phone": "Telefone",
+      "phonePlaceholder": "+351 900 000 000",
+      "service": "Servico",
+      "date": "Horario preferido",
+      "datePlaceholder": "Ex: Sabado, 15h",
+      "submit": "Pedir marcacao",
+      "note": "Confirmamos a tua marcacao por WhatsApp."
+    }
+  },
+  "stats": [
+    ["4.8/5", "Avaliacao"],
+    ["1.2k+", "Clientes"],
+    ["12 anos", "De oficio"]
+  ],
+  "gallery": [
+    "Foto: corte finalizado",
+    "Foto: modelagem de barba",
+    "Foto: acabamento a navalha",
+    "Foto: styling em curso",
+    "Foto: cliente satisfeito"
+  ],
+  "prices": [
+    { "name": "Corte", "price": "22 EUR" },
+    { "name": "Barba", "price": "16 EUR" },
+    { "name": "Corte + Barba", "price": "35 EUR" },
+    { "name": "Aparar de barba", "price": "12 EUR" },
+    { "name": "Tratamento capilar", "price": "18 EUR" }
+  ],
+  "team": [
+    {
+      "name": "Tiago Alves",
+      "role": "Master Barber",
+      "photo": "https://i.pravatar.cc/320?img=12"
+    },
+    {
+      "name": "Rui Ferreira",
+      "role": "Barbeiro",
+      "photo": "https://i.pravatar.cc/320?img=33"
+    },
+    {
+      "name": "Andre Costa",
+      "role": "Barbeiro Junior",
+      "photo": "https://i.pravatar.cc/320?img=15"
+    }
+  ],
+  "labels": {
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp",
+    "namePlaceholder": "O teu nome",
+    "phonePlaceholder": "+351 900 000 000",
+    "datePlaceholder": "Ex: Sabado, 15h",
+    "reviewAuthor": "Ricardo M."
+  }
 }

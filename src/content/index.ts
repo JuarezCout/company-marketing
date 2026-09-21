@@ -20,7 +20,14 @@ export const content = {
   banhoECozinha,
   canalizacao,
   saude,
-  images: { barbeariaImages, salaoBelezaImages, reformasImages, banhoECozinhaImages, canalizacaoImages, saudeImages },
+  images: {
+    barbeariaImages,
+    salaoBelezaImages,
+    reformasImages,
+    banhoECozinhaImages,
+    canalizacaoImages,
+    saudeImages,
+  },
 } as const;
 
 export type SiteContent = typeof content;

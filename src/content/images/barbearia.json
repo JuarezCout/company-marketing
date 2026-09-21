@@ -1,1 +1,39 @@
-{"hero":{"src":"","alt":"Foto principal da barbearia","caption":"Foto: barbearia"},"location":{"src":"","alt":"Localizacao da barbearia","caption":"Mapa: localizacao da barbearia"},"gallery":[{"src":"","alt":"Corte finalizado","caption":"Foto: corte finalizado"},{"src":"","alt":"Modelagem de barba","caption":"Foto: modelagem de barba"},{"src":"","alt":"Acabamento a navalha","caption":"Foto: acabamento a navalha"},{"src":"","alt":"Styling em curso","caption":"Foto: styling em curso"},{"src":"","alt":"Cliente satisfeito","caption":"Foto: cliente satisfeito"}]}
+{
+  "hero": {
+    "src": "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=1200&q=85",
+    "alt": "Barbeiro a finalizar um corte masculino",
+    "caption": "Foto: corte masculino"
+  },
+  "location": {
+    "src": "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1200&q=85",
+    "alt": "Interior de uma barbearia moderna",
+    "caption": "Foto: interior da barbearia"
+  },
+  "gallery": [
+    {
+      "src": "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=85",
+      "alt": "Corte masculino finalizado",
+      "caption": "Foto: corte finalizado"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=85",
+      "alt": "Barbeiro a modelar uma barba",
+      "caption": "Foto: modelagem de barba"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=85",
+      "alt": "Acabamento de barba com navalha",
+      "caption": "Foto: acabamento a navalha"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1517832606299-7ae9b720a186?auto=format&fit=crop&w=900&q=85",
+      "alt": "Barbeiro a fazer styling",
+      "caption": "Foto: styling em curso"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=900&q=85",
+      "alt": "Cliente depois do corte",
+      "caption": "Foto: cliente satisfeito"
+    }
+  ]
+}

@@ -21,6 +21,7 @@ import {
   WhatsappLogo,
 } from "@phosphor-icons/react/dist/ssr";
 import salaoContent from "@/content/salao-beleza.json";
+import salaoImages from "@/content/images/salao-beleza.json";
 
 /**
  * Design read: premium-consumer beauty salon landing page (redesign-overhaul),
@@ -72,14 +73,16 @@ export const metadata: Metadata = {
 };
 
 type PhotoPlaceholderProps = {
-  caption: string;
+  src?: string;
+  alt: string;
   className?: string;
   tone?: "light" | "dark";
 };
 
 /** Honest stand-in for real salon photography (no image-gen tool available in this session). */
 function PhotoPlaceholder({
-  caption,
+  src,
+  alt,
   className,
   tone = "light",
 }: PhotoPlaceholderProps) {
@@ -92,18 +95,14 @@ function PhotoPlaceholder({
           : "bg-[linear-gradient(135deg,#efe6dd_0%,#f6ded1_100%)]"
       } ${className ?? ""}`}
     >
-      <div className="flex items-center gap-2 p-4">
-        <Camera
-          size={16}
-          weight="light"
-          className={isDark ? "text-white/70" : "text-[#8a6a56]"}
+      {src ? (
+        <img
+          src={src}
+          alt={alt}
+          className="h-full w-full object-cover"
+          loading="lazy"
         />
-        <span
-          className={`text-xs ${isDark ? "text-white/70" : "text-[#8a6a56]"}`}
-        >
-          {caption}
-        </span>
-      </div>
+      ) : null}
     </div>
   );
 }
@@ -188,7 +187,8 @@ export default function SalaoBelezaPage() {
 
             <div className="relative">
               <PhotoPlaceholder
-                caption="Foto: cliente apos tratamento de beleza"
+                src={salaoImages.hero.src}
+                alt={salaoImages.hero.alt}
                 className="h-105 w-full md:h-135"
               />
               <div className="absolute -bottom-6 left-6 flex items-center gap-3 rounded-xl border border-[#1c2024]/8 bg-white px-5 py-4 shadow-[0_20px_45px_-25px_rgba(28,32,36,0.45)] md:left-8">
@@ -247,7 +247,8 @@ export default function SalaoBelezaPage() {
         >
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1fr] lg:items-center">
             <PhotoPlaceholder
-              caption="Foto: interior do estudio"
+              src={salaoImages.about.src}
+              alt={salaoImages.about.alt}
               className="h-90 w-full lg:h-130"
             />
 
@@ -301,11 +302,12 @@ export default function SalaoBelezaPage() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-3">
-              {serviceCards.map((card) => (
+              {serviceCards.map((card, index) => (
                 <div key={card.name} className="group">
                   <div className="overflow-hidden rounded-2xl">
                     <PhotoPlaceholder
-                      caption={card.photoCaption}
+                      src={salaoImages.services[index]?.src}
+                      alt={salaoImages.services[index]?.alt ?? card.name}
                       className="h-72 w-full transition duration-500 group-hover:scale-105"
                     />
                   </div>
@@ -380,13 +382,14 @@ export default function SalaoBelezaPage() {
         {/* Package promo duo */}
         <section className="bg-white px-6 py-20 lg:px-8 lg:py-28">
           <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2">
-            {packages.map((pack) => (
+            {packages.map((pack, index) => (
               <div
                 key={pack.title}
                 className="group relative overflow-hidden rounded-2xl"
               >
                 <PhotoPlaceholder
-                  caption={pack.photoCaption}
+                  src={salaoImages.packages[index]?.src}
+                  alt={salaoImages.packages[index]?.alt ?? pack.title}
                   tone="dark"
                   className="h-80 w-full transition duration-500 group-hover:scale-105"
                 />
@@ -418,7 +421,8 @@ export default function SalaoBelezaPage() {
           <div className="absolute inset-0 bg-[linear-gradient(115deg,#161d24_25%,#4a3226_100%)] opacity-90" />
           <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-[0.85fr_1fr] lg:items-center lg:px-8 lg:py-28">
             <PhotoPlaceholder
-              caption="Foto: especialista em preparacao"
+              src={salaoImages.trust.src}
+              alt={salaoImages.trust.alt}
               className="h-80 w-full lg:h-115"
             />
 
@@ -570,7 +574,8 @@ export default function SalaoBelezaPage() {
 
             <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
               <PhotoPlaceholder
-                caption="Foto: fachada do estudio"
+                src={salaoImages.location.src}
+                alt={salaoImages.location.alt}
                 className="h-64 w-full lg:h-full"
               />
 
@@ -582,7 +587,9 @@ export default function SalaoBelezaPage() {
                     className="flex-none text-[#e07856]"
                   />
                   <div>
-                    <p className="text-sm font-medium text-[#1c2024]">{salaoContent.labels.address}</p>
+                    <p className="text-sm font-medium text-[#1c2024]">
+                      {salaoContent.labels.address}
+                    </p>
                     <p className="mt-1 text-sm text-[#54504c]">
                       {salonAddress}
                     </p>

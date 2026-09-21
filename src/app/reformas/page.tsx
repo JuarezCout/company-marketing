@@ -4,7 +4,6 @@ import {
   Armchair,
   ArrowRight,
   Broom,
-  Camera,
   Clock,
   Door,
   EnvelopeSimple,
@@ -18,6 +17,7 @@ import {
   Wrench,
 } from "@phosphor-icons/react/dist/ssr";
 import reformasContent from "@/content/reformas.json";
+import reformasImages from "@/content/images/reformas.json";
 
 /**
  * Redesign of /reformas following the redesign-existing-projects audit,
@@ -62,11 +62,18 @@ export const metadata: Metadata = {
 };
 
 type PhotoPlaceholderProps = {
+  src?: string;
+  alt: string;
   className?: string;
   tone?: "dark" | "light";
 };
 
-function PhotoPlaceholder({ className, tone = "dark" }: PhotoPlaceholderProps) {
+function PhotoPlaceholder({
+  src,
+  alt,
+  className,
+  tone = "dark",
+}: PhotoPlaceholderProps) {
   const isDark = tone === "dark";
   return (
     <div
@@ -75,23 +82,24 @@ function PhotoPlaceholder({ className, tone = "dark" }: PhotoPlaceholderProps) {
           ? "bg-[linear-gradient(135deg,#3a1f18_0%,#241512_100%)]"
           : "bg-[linear-gradient(135deg,#f3d9bb_0%,#fbe9d8_100%)]"
       } ${className ?? ""}`}
-    />
-  );
-}
-
-/** Rendered after any overlay so the caption always stays visible, unlike a nested one. */
-function PhotoCaption({ caption }: { caption: string }) {
-  return (
-    <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-black/45 px-3 py-1.5 backdrop-blur-sm">
-      <Camera size={13} weight="light" className="text-white/80" />
-      <span className="text-[11px] text-white/80">{caption}</span>
+    >
+      {src ? (
+        <img
+          src={src}
+          alt={alt}
+          className="h-full w-full object-cover"
+          loading="lazy"
+        />
+      ) : null}
     </div>
   );
 }
 
 export default function ReformasPage() {
   return (
-    <div className={`${archivo.variable} ${karla.variable} theme-reformas min-h-screen bg-(--page) font-(family-name:--font-body) text-(--text) selection:bg-(--accent) selection:text-white`}>
+    <div
+      className={`${archivo.variable} ${karla.variable} theme-reformas min-h-screen bg-(--page) font-(family-name:--font-body) text-(--text) selection:bg-(--accent) selection:text-white`}
+    >
       <header className="sticky top-0 z-50 border-b border-[#241512]/10 bg-[#fbe9d8]/92 backdrop-blur-md">
         <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 lg:px-8">
           <div className="flex items-center gap-3">
@@ -141,8 +149,8 @@ export default function ReformasPage() {
                 perto de ti!
               </h1>
               <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/60">
-                De pequenos arranjos a instalacoes completas, tratamos de
-                quase tudo em tua casa, incluindo servicos de urgencia.
+                De pequenos arranjos a instalacoes completas, tratamos de quase
+                tudo em tua casa, incluindo servicos de urgencia.
               </p>
 
               <a
@@ -157,8 +165,12 @@ export default function ReformasPage() {
             </div>
 
             <div className="relative">
-              <PhotoPlaceholder tone="dark" className="h-72 w-full lg:h-full" />
-              <PhotoCaption caption="Foto: tecnico a trabalhar em casa" />
+              <PhotoPlaceholder
+                src={reformasImages.hero.src}
+                alt={reformasImages.hero.alt}
+                tone="dark"
+                className="h-72 w-full lg:h-full"
+              />
             </div>
           </div>
 
@@ -173,7 +185,10 @@ export default function ReformasPage() {
         </section>
 
         {/* Problem + service category gallery */}
-        <section id="servicos" className="bg-[#fbe9d8] px-6 py-16 lg:px-8 lg:py-20">
+        <section
+          id="servicos"
+          className="bg-[#fbe9d8] px-6 py-16 lg:px-8 lg:py-20"
+        >
           <div className="mx-auto max-w-7xl">
             <div className="mb-10 text-center">
               <h2 className="font-(family-name:--font-display) text-3xl font-extrabold uppercase text-[#241512] md:text-4xl">
@@ -185,13 +200,24 @@ export default function ReformasPage() {
             </div>
 
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-              {categories.map((category) => (
+              {categories.map((category, index) => (
                 <div key={category.name} className="text-center">
                   <div className="relative">
-                    <PhotoPlaceholder tone="light" className="h-28 w-full" />
+                    <PhotoPlaceholder
+                      src={reformasImages.categories[index]?.src}
+                      alt={
+                        reformasImages.categories[index]?.alt ?? category.name
+                      }
+                      tone="light"
+                      className="h-28 w-full"
+                    />
                   </div>
                   <p className="mt-3 flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-[#241512]">
-                    <category.Icon size={14} weight="light" className="text-[#e2793a]" />
+                    <category.Icon
+                      size={14}
+                      weight="light"
+                      className="text-[#e2793a]"
+                    />
                     {category.name}
                   </p>
                 </div>
@@ -204,8 +230,12 @@ export default function ReformasPage() {
         <section className="bg-white px-6 py-16 lg:px-8 lg:py-20">
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div className="relative">
-              <PhotoPlaceholder tone="dark" className="h-72 w-full lg:h-96" />
-              <PhotoCaption caption="Foto: equipa Casa Certa" />
+              <PhotoPlaceholder
+                src={reformasImages.solutions.src}
+                alt={reformasImages.solutions.alt}
+                tone="dark"
+                className="h-72 w-full lg:h-96"
+              />
             </div>
 
             <div>
@@ -219,8 +249,8 @@ export default function ReformasPage() {
               <p className="mt-5 max-w-md text-sm leading-relaxed text-[#5c4438]">
                 Prestamos servicos de manutencao e reparacao pensados para
                 manter a tua casa segura, funcional e com bom aspeto. De
-                pequenos arranjos a reformas completas, a nossa equipa
-                entrega um trabalho cuidado, com atencao a cada detalhe.
+                pequenos arranjos a reformas completas, a nossa equipa entrega
+                um trabalho cuidado, com atencao a cada detalhe.
               </p>
             </div>
           </div>
@@ -230,8 +260,12 @@ export default function ReformasPage() {
         <section className="bg-[#241512] px-6 py-16 text-white lg:px-8 lg:py-20">
           <div className="mx-auto grid max-w-7xl gap-8 overflow-hidden rounded-2xl bg-[#2f1c17] lg:grid-cols-[0.9fr_1.1fr]">
             <div className="relative">
-              <PhotoPlaceholder tone="dark" className="h-56 w-full rounded-none lg:h-full" />
-              <PhotoCaption caption="Foto: trabalho concluido" />
+              <PhotoPlaceholder
+                src={reformasImages.caseStudy.src}
+                alt={reformasImages.caseStudy.alt}
+                tone="dark"
+                className="h-56 w-full rounded-none lg:h-full"
+              />
             </div>
 
             <div className="p-6 lg:p-10">
@@ -272,16 +306,27 @@ export default function ReformasPage() {
         </section>
 
         {/* Testimonial */}
-        <section id="avaliacoes" className="bg-[#fbe9d8] px-6 py-16 lg:px-8 lg:py-20">
+        <section
+          id="avaliacoes"
+          className="bg-[#fbe9d8] px-6 py-16 lg:px-8 lg:py-20"
+        >
           <div className="mx-auto grid max-w-5xl items-center gap-6 lg:grid-cols-[0.7fr_1.6fr_0.7fr]">
-            <PhotoPlaceholder tone="light" className="hidden h-40 w-full lg:block" />
+            <PhotoPlaceholder
+              src={reformasImages.testimonial.src}
+              alt={reformasImages.testimonial.alt}
+              tone="light"
+              className="hidden h-40 w-full lg:block"
+            />
 
             <div className="text-center">
-              <Quotes size={28} weight="fill" className="mx-auto text-[#e2793a]" />
+              <Quotes
+                size={28}
+                weight="fill"
+                className="mx-auto text-[#e2793a]"
+              />
               <p className="mt-5 text-lg leading-relaxed text-[#241512] md:text-xl">
-                Tive uma fuga a meio da noite e fiquei preocupada que
-                estragasse tudo. Contactei o suporte 24 horas e resolveram
-                no proprio dia.
+                Tive uma fuga a meio da noite e fiquei preocupada que estragasse
+                tudo. Contactei o suporte 24 horas e resolveram no proprio dia.
               </p>
               <p className="mt-5 text-sm font-semibold text-[#241512]">
                 Sofia G. Teixeira
@@ -289,7 +334,12 @@ export default function ReformasPage() {
               <p className="text-xs text-[#5c4438]">Cliente</p>
             </div>
 
-            <PhotoPlaceholder tone="light" className="hidden h-40 w-full lg:block" />
+            <PhotoPlaceholder
+              src={reformasImages.testimonial.src}
+              alt={reformasImages.testimonial.alt}
+              tone="light"
+              className="hidden h-40 w-full lg:block"
+            />
           </div>
         </section>
 
@@ -298,7 +348,11 @@ export default function ReformasPage() {
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <div className="space-y-3">
               <div className="flex items-center gap-3 rounded-xl border border-[#241512]/15 bg-[#fbe9d8] px-4 py-3.5">
-                <Phone size={18} weight="light" className="flex-none text-[#241512]" />
+                <Phone
+                  size={18}
+                  weight="light"
+                  className="flex-none text-[#241512]"
+                />
                 <div>
                   <p className="text-sm font-semibold text-[#241512]">
                     {companyPhone}
@@ -307,7 +361,11 @@ export default function ReformasPage() {
                 </div>
               </div>
               <div className="flex items-center gap-3 rounded-xl border border-[#241512]/15 bg-[#241512] px-4 py-3.5">
-                <EnvelopeSimple size={18} weight="light" className="flex-none text-[#e2793a]" />
+                <EnvelopeSimple
+                  size={18}
+                  weight="light"
+                  className="flex-none text-[#e2793a]"
+                />
                 <div>
                   <p className="text-sm font-semibold text-white">
                     {companyEmail}
@@ -316,7 +374,11 @@ export default function ReformasPage() {
                 </div>
               </div>
               <div className="flex items-center gap-3 rounded-xl border border-[#241512]/15 bg-[#fbe9d8] px-4 py-3.5">
-                <MapPin size={18} weight="light" className="flex-none text-[#241512]" />
+                <MapPin
+                  size={18}
+                  weight="light"
+                  className="flex-none text-[#241512]"
+                />
                 <div>
                   <p className="text-sm font-semibold text-[#241512]">
                     {companyAddress}
@@ -327,8 +389,12 @@ export default function ReformasPage() {
             </div>
 
             <div className="relative">
-              <PhotoPlaceholder tone="dark" className="h-64 w-full lg:h-80" />
-              <PhotoCaption caption="Foto: equipa pronta a intervir" />
+              <PhotoPlaceholder
+                src={reformasImages.contact.src}
+                alt={reformasImages.contact.alt}
+                tone="dark"
+                className="h-64 w-full lg:h-80"
+              />
               <div className="absolute -bottom-6 -right-6 hidden h-24 w-24 items-center justify-center rounded-full border border-white/30 bg-[#241512] text-center text-[9px] font-semibold uppercase leading-tight tracking-wide text-white lg:flex animate-[spin_16s_linear_infinite] motion-reduce:animate-none">
                 Fala connosco ja
               </div>
@@ -344,9 +410,9 @@ export default function ReformasPage() {
                 Servicos de reparacao domestica fiaveis, hoje
               </h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-white/60">
-                As nossas solucoes de reparacao sao pensadas para manter a
-                tua casa segura, funcional e com bom aspeto, do pequeno
-                arranjo a reforma completa.
+                As nossas solucoes de reparacao sao pensadas para manter a tua
+                casa segura, funcional e com bom aspeto, do pequeno arranjo a
+                reforma completa.
               </p>
               <a
                 href={whatsappLink}
@@ -358,7 +424,12 @@ export default function ReformasPage() {
                 <ArrowRight size={14} weight="bold" />
               </a>
             </div>
-            <PhotoPlaceholder tone="dark" className="h-56 w-full border border-white/10 lg:h-72" />
+            <PhotoPlaceholder
+              src={reformasImages.cta.src}
+              alt={reformasImages.cta.alt}
+              tone="dark"
+              className="h-56 w-full border border-white/10 lg:h-72"
+            />
           </div>
         </section>
 
@@ -398,7 +469,10 @@ export default function ReformasPage() {
                 ))}
               </div>
 
-              <div id="contacto" className="rounded-2xl bg-[#241512] p-6 text-white">
+              <div
+                id="contacto"
+                className="rounded-2xl bg-[#241512] p-6 text-white"
+              >
                 <p className="mb-5 font-(family-name:--font-display) text-base font-bold">
                   Pedir contacto
                 </p>
@@ -479,7 +553,9 @@ export default function ReformasPage() {
               Emergencia
             </p>
             <p className="text-sm font-medium text-[#241512]">{companyEmail}</p>
-            <p className="mt-1 text-sm font-medium text-[#241512]">{companyPhone}</p>
+            <p className="mt-1 text-sm font-medium text-[#241512]">
+              {companyPhone}
+            </p>
           </div>
 
           <div>

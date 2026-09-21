@@ -326,7 +326,10 @@ const services = [
     price: "desde €80",
     Icon: LightIcon,
   },
-].map((service, index) => ({ ...banhoContent.services[index], Icon: service.Icon }));
+].map((service, index) => ({
+  ...banhoContent.services[index],
+  Icon: service.Icon,
+}));
 
 const reasons = banhoContent.reasons;
 const steps = banhoContent.steps;
@@ -732,7 +735,9 @@ export default function BanhoECozinhaPage() {
                 <div className="flex gap-4 rounded-2xl border border-[#f9c74f]/15 bg-[#201a17] p-6">
                   <PinIcon className="h-5 w-5 flex-none text-[#f9c74f]" />
                   <div>
-                    <p className="text-sm font-semibold text-white">{banhoContent.labels.showroom}</p>
+                    <p className="text-sm font-semibold text-white">
+                      {banhoContent.labels.showroom}
+                    </p>
                     <p className="mt-1 text-sm text-[#f4dcc3]">
                       {companyAddress}
                     </p>

@@ -1,1 +1,64 @@
-{"hero":{"src":"","alt":"Tecnico a trabalhar em casa","caption":"Foto: tecnico a trabalhar em casa"},"categories":[{"src":"","alt":"Canalizacao","caption":"Foto: canalizacao"},{"src":"","alt":"Eletricidade","caption":"Foto: eletricidade"},{"src":"","alt":"Montagem de moveis","caption":"Foto: montagem de moveis"},{"src":"","alt":"Limpeza da casa","caption":"Foto: limpeza da casa"},{"src":"","alt":"Portas e fechaduras","caption":"Foto: portas e fechaduras"},{"src":"","alt":"Pintura","caption":"Foto: pintura"}],"solutions":{"src":"","alt":"Equipa Casa Certa","caption":"Foto: equipa Casa Certa"},"caseStudy":{"src":"","alt":"Trabalho concluido","caption":"Foto: trabalho concluido"},"contact":{"src":"","alt":"Equipa pronta a intervir","caption":"Foto: equipa pronta a intervir"},"cta":{"src":"","alt":"Servico domestico","caption":"Foto: servico domestico"}}
+{
+  "hero": {
+    "src": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
+    "alt": "Tecnico de construcao a trabalhar numa obra",
+    "caption": "Foto: tecnico a trabalhar em casa"
+  },
+  "categories": [
+    {
+      "src": "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=900&q=85",
+      "alt": "Tecnico de canalizacao a reparar tubagem",
+      "caption": "Foto: canalizacao"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=85",
+      "alt": "Eletricista a trabalhar num quadro eletrico",
+      "caption": "Foto: eletricidade"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=85",
+      "alt": "Montagem de moveis numa cozinha",
+      "caption": "Foto: montagem de moveis"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=85",
+      "alt": "Profissional a limpar uma casa",
+      "caption": "Foto: limpeza da casa"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=85",
+      "alt": "Porta e ferragens de uma casa",
+      "caption": "Foto: portas e fechaduras"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=900&q=85",
+      "alt": "Profissional a pintar uma parede",
+      "caption": "Foto: pintura"
+    }
+  ],
+  "solutions": {
+    "src": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85",
+    "alt": "Equipa de profissionais numa obra",
+    "caption": "Foto: equipa Casa Certa"
+  },
+  "testimonial": {
+    "src": "https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=900&q=85",
+    "alt": "Interior de uma casa depois de um servico",
+    "caption": "Foto: detalhe de servico"
+  },
+  "caseStudy": {
+    "src": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85",
+    "alt": "Trabalho de construcao concluido",
+    "caption": "Foto: trabalho concluido"
+  },
+  "contact": {
+    "src": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=85",
+    "alt": "Profissional pronto para intervir numa casa",
+    "caption": "Foto: equipa pronta a intervir"
+  },
+  "cta": {
+    "src": "https://images.unsplash.com/photo-1505798577917-a65157d3320a?auto=format&fit=crop&w=1200&q=85",
+    "alt": "Casa em manutencao e reparacao",
+    "caption": "Foto: servico domestico"
+  }
+}

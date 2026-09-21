@@ -15,6 +15,7 @@ import {
   Quotes,
 } from "@phosphor-icons/react/dist/ssr";
 import saudeContent from "@/content/saude.json";
+import saudeImages from "@/content/images/saude.json";
 
 /**
  * Redesign of /saude following the redesign-existing-projects audit,
@@ -60,12 +61,19 @@ export const metadata: Metadata = {
 };
 
 type PhotoPlaceholderProps = {
+  src?: string;
+  alt: string;
   className?: string;
   tone?: "dark" | "light";
 };
 
 /** Honest stand-in for real clinic photography (no image-gen tool available in this session). */
-function PhotoPlaceholder({ className, tone = "dark" }: PhotoPlaceholderProps) {
+function PhotoPlaceholder({
+  src,
+  alt,
+  className,
+  tone = "dark",
+}: PhotoPlaceholderProps) {
   const isDark = tone === "dark";
   return (
     <div
@@ -74,16 +82,15 @@ function PhotoPlaceholder({ className, tone = "dark" }: PhotoPlaceholderProps) {
           ? "bg-[linear-gradient(135deg,#1b3327_0%,#0f1f17_100%)]"
           : "bg-[linear-gradient(135deg,#dce8db_0%,#eef3e6_100%)]"
       } ${className ?? ""}`}
-    />
-  );
-}
-
-/** Rendered after any overlay so the caption always stays visible, unlike a nested one. */
-function PhotoCaption({ caption }: { caption: string }) {
-  return (
-    <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-full bg-black/45 px-3 py-1.5 backdrop-blur-sm">
-      <Camera size={13} weight="light" className="text-white/80" />
-      <span className="text-[11px] text-white/80">{caption}</span>
+    >
+      {src ? (
+        <img
+          src={src}
+          alt={alt}
+          className="h-full w-full object-cover"
+          loading="lazy"
+        />
+      ) : null}
     </div>
   );
 }
@@ -134,17 +141,20 @@ export default function SaudePage() {
         {/* Hero: full-bleed dark green photo block with a real booking form */}
         <section className="relative overflow-hidden bg-[#0f1f17]">
           <PhotoPlaceholder
+            src={saudeImages.hero.src}
+            alt={saudeImages.hero.alt}
             tone="dark"
             className="absolute inset-0 rounded-none"
           />
           <div className="absolute inset-0 bg-[linear-gradient(100deg,#0f1f17_35%,rgba(15,31,23,0.55)_75%,rgba(15,31,23,0.2)_100%)]" />
-          <PhotoCaption caption="Foto: fisioterapeuta a tratar um paciente" />
 
           <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8 lg:py-24">
             <div className="max-w-xl">
               <h1 className="font-(family-name:--font-display) text-4xl font-bold leading-[1.1] text-white md:text-5xl">
                 Recuperar. Reconstruir.{" "}
-                <span className="text-[#8fd488]">{saudeContent.labels.restart}</span>
+                <span className="text-[#8fd488]">
+                  {saudeContent.labels.restart}
+                </span>
               </h1>
               <p className="mt-6 max-w-md text-base leading-relaxed text-white/70">
                 Cuidados de fisioterapia personalizados para restaurares forca,
@@ -284,7 +294,10 @@ export default function SaudePage() {
           <div className="mx-auto max-w-7xl">
             <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <h2 className="font-(family-name:--font-display) text-3xl font-bold text-[#16241b] md:text-4xl">
-                Servicos de <span className="text-[#4f7a4a]">{saudeContent.labels.servicesAccent}</span>
+                Servicos de{" "}
+                <span className="text-[#4f7a4a]">
+                  {saudeContent.labels.servicesAccent}
+                </span>
               </h2>
               <a
                 href={whatsappLink}
@@ -298,14 +311,18 @@ export default function SaudePage() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-3">
-              {services.map((service) => (
+              {services.map((service, index) => (
                 <div
                   key={service.name}
                   className="group rounded-2xl bg-white p-3"
                 >
                   <div className="relative overflow-hidden rounded-xl">
-                    <PhotoPlaceholder tone="light" className="h-44 w-full" />
-                    <PhotoCaption caption={service.photoCaption} />
+                    <PhotoPlaceholder
+                      src={saudeImages.services[index]?.src}
+                      alt={saudeImages.services[index]?.alt ?? service.name}
+                      tone="light"
+                      className="h-44 w-full"
+                    />
                     <span className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-[#4f7a4a] text-white transition group-hover:bg-[#3d6238]">
                       <service.Icon size={16} weight="light" />
                     </span>
@@ -336,14 +353,15 @@ export default function SaudePage() {
             </h2>
 
             <div className="grid gap-6 md:grid-cols-3">
-              {steps.map((step) => (
+              {steps.map((step, index) => (
                 <div key={step.number}>
                   <div className="relative">
                     <PhotoPlaceholder
+                      src={saudeImages.steps[index]?.src}
+                      alt={saudeImages.steps[index]?.alt ?? step.title}
                       tone="dark"
                       className="h-40 w-full border border-white/10"
                     />
-                    <PhotoCaption caption={`Foto: passo ${step.number}`} />
                   </div>
                   <p className="mt-4 font-(family-name:--font-display) text-sm font-semibold text-[#8fd488]">
                     {step.number}
@@ -393,7 +411,9 @@ export default function SaudePage() {
                 <p className="text-sm font-semibold text-[#16241b]">
                   Fernando A.
                 </p>
-                <p className="text-xs text-[#5c6b57]">{saudeContent.labels.patient}</p>
+                <p className="text-xs text-[#5c6b57]">
+                  {saudeContent.labels.patient}
+                </p>
               </div>
             </div>
           </div>
@@ -409,7 +429,9 @@ export default function SaudePage() {
                 className="flex-none text-[#4f7a4a]"
               />
               <div>
-                <p className="text-sm font-semibold text-[#16241b]">{saudeContent.labels.address}</p>
+                <p className="text-sm font-semibold text-[#16241b]">
+                  {saudeContent.labels.address}
+                </p>
                 <p className="mt-1 text-sm text-[#5c6b57]">{clinicAddress}</p>
               </div>
             </div>
@@ -420,7 +442,9 @@ export default function SaudePage() {
                 className="flex-none text-[#4f7a4a]"
               />
               <div>
-                <p className="text-sm font-semibold text-[#16241b]">{saudeContent.labels.phone}</p>
+                <p className="text-sm font-semibold text-[#16241b]">
+                  {saudeContent.labels.phone}
+                </p>
                 <p className="mt-1 text-sm text-[#5c6b57]">{clinicPhone}</p>
               </div>
             </div>

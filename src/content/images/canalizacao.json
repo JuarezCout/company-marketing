@@ -1,1 +1,49 @@
-{"hero":{"src":"","alt":"Tecnico de canalizacao em intervencao","caption":"Foto: tecnico em intervencao"},"services":[{"src":"","alt":"Desentupimento urgente","caption":"Foto: desentupimento"},{"src":"","alt":"Detecao de fuga","caption":"Foto: detecao de fuga"},{"src":"","alt":"Reparacao de torneira","caption":"Foto: reparacao de torneira"},{"src":"","alt":"Esquentador","caption":"Foto: equipamento de agua quente"},{"src":"","alt":"Manutencao preventiva","caption":"Foto: manutencao preventiva"},{"src":"","alt":"Substituicao de canalizacao","caption":"Foto: canalizacao nova"}],"about":{"src":"","alt":"Tecnico de canalizacao","caption":"Foto: tecnico certificado"},"contact":{"src":"","alt":"Area de servico","caption":"Foto: area de servico"}}
+{
+  "hero": {
+    "src": "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1200&q=85",
+    "alt": "Tecnico de canalizacao em intervencao",
+    "caption": "Foto: tecnico em intervencao"
+  },
+  "services": [
+    {
+      "src": "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=900&q=85",
+      "alt": "Tecnico a resolver uma urgencia de canalizacao",
+      "caption": "Foto: desentupimento"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&w=900&q=85",
+      "alt": "Detecao de fuga numa instalacao de agua",
+      "caption": "Foto: detecao de fuga"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=900&q=85",
+      "alt": "Reparacao de torneira",
+      "caption": "Foto: reparacao de torneira"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=900&q=85",
+      "alt": "Equipamento de agua quente",
+      "caption": "Foto: equipamento de agua quente"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=900&q=85",
+      "alt": "Tecnico a fazer manutencao preventiva",
+      "caption": "Foto: manutencao preventiva"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=85",
+      "alt": "Tubagem numa instalacao tecnica",
+      "caption": "Foto: canalizacao nova"
+    }
+  ],
+  "about": {
+    "src": "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=900&q=85",
+    "alt": "Tecnico de canalizacao certificado",
+    "caption": "Foto: tecnico certificado"
+  },
+  "contact": {
+    "src": "https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?auto=format&fit=crop&w=900&q=85",
+    "alt": "Tecnico na area de servico",
+    "caption": "Foto: area de servico"
+  }
+}

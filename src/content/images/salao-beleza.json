@@ -1,1 +1,51 @@
-{"hero":{"src":"","alt":"Cliente do estudio Alma apos tratamento","caption":"Foto: cliente apos tratamento de beleza"},"about":{"src":"","alt":"Interior do estudio Alma","caption":"Foto: interior do estudio"},"services":[{"src":"","alt":"Servico de cabelo","caption":"Foto: servico de cabelo"},{"src":"","alt":"Manicure e pedicure","caption":"Foto: manicure e pedicure"},{"src":"","alt":"Tratamento facial","caption":"Foto: tratamento facial"}],"packages":[{"src":"","alt":"Pacote noiva","caption":"Foto: pacote noiva"},{"src":"","alt":"Pacote expresso","caption":"Foto: pacote expresso"}],"trust":{"src":"","alt":"Especialista a preparar tratamento","caption":"Foto: especialista em preparacao"},"location":{"src":"","alt":"Fachada do estudio Alma","caption":"Foto: fachada do estudio"}}
+{
+  "hero": {
+    "src": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=85",
+    "alt": "Cliente num salao de beleza",
+    "caption": "Foto: cliente no estudio"
+  },
+  "about": {
+    "src": "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=85",
+    "alt": "Interior acolhedor de um salao de beleza",
+    "caption": "Foto: interior do estudio"
+  },
+  "services": [
+    {
+      "src": "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=900&q=85",
+      "alt": "Cabeleireira a trabalhar no cabelo de uma cliente",
+      "caption": "Foto: servico de cabelo"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1610992015732-2449b76344bc?auto=format&fit=crop&w=900&q=85",
+      "alt": "Manicure com verniz",
+      "caption": "Foto: manicure e pedicure"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=85",
+      "alt": "Tratamento facial de beleza",
+      "caption": "Foto: tratamento facial"
+    }
+  ],
+  "packages": [
+    {
+      "src": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85",
+      "alt": "Preparacao de maquilhagem para noiva",
+      "caption": "Foto: pacote noiva"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=900&q=85",
+      "alt": "Produtos de beleza para um pacote expresso",
+      "caption": "Foto: pacote expresso"
+    }
+  ],
+  "trust": {
+    "src": "https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=900&q=85",
+    "alt": "Especialista a preparar um tratamento de beleza",
+    "caption": "Foto: especialista em preparacao"
+  },
+  "location": {
+    "src": "https://images.unsplash.com/photo-1600948836101-f9ffda59d250?auto=format&fit=crop&w=900&q=85",
+    "alt": "Entrada de um estudio de beleza",
+    "caption": "Foto: fachada do estudio"
+  }
+}

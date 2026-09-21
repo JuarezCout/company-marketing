@@ -1,1 +1,61 @@
-{"hero":{"src":"","alt":"Projeto de cozinha","caption":"Foto: projeto de cozinha"},"services":[{"src":"","alt":"Remodelacao de cozinhas","caption":"Foto: remodelacao de cozinha"},{"src":"","alt":"Casa de banho completa","caption":"Foto: casa de banho"},{"src":"","alt":"Duche e banheira","caption":"Foto: duche e banheira"},{"src":"","alt":"Armarios e bancadas","caption":"Foto: armarios e bancadas"},{"src":"","alt":"Torneiras e canalizacao","caption":"Foto: torneiras"},{"src":"","alt":"Iluminacao e acabamentos","caption":"Foto: iluminacao"}],"about":{"src":"","alt":"Design de cozinha e casa de banho","caption":"Foto: design premium"},"packages":[{"src":"","alt":"Projeto de cozinha","caption":"Foto: projeto de cozinha"},{"src":"","alt":"Projeto de casa de banho","caption":"Foto: projeto de casa de banho"}],"contact":{"src":"","alt":"Showroom Banho e Cozinha","caption":"Foto: showroom"}}
+{
+  "hero": {
+    "src": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=85",
+    "alt": "Cozinha moderna remodelada",
+    "caption": "Foto: projeto de cozinha"
+  },
+  "services": [
+    {
+      "src": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=85",
+      "alt": "Remodelacao de uma cozinha moderna",
+      "caption": "Foto: remodelacao de cozinha"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=900&q=85",
+      "alt": "Casa de banho moderna completa",
+      "caption": "Foto: casa de banho"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=85",
+      "alt": "Duche moderno numa casa de banho",
+      "caption": "Foto: duche e banheira"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1556909212-d5b604d0c90d?auto=format&fit=crop&w=900&q=85",
+      "alt": "Armarios e bancada de cozinha",
+      "caption": "Foto: armarios e bancadas"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=85",
+      "alt": "Torneira moderna de casa de banho",
+      "caption": "Foto: torneiras"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=900&q=85",
+      "alt": "Iluminacao decorativa de interior",
+      "caption": "Foto: iluminacao"
+    }
+  ],
+  "about": {
+    "src": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85",
+    "alt": "Interior com design premium",
+    "caption": "Foto: design premium"
+  },
+  "packages": [
+    {
+      "src": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=85",
+      "alt": "Projeto de cozinha personalizado",
+      "caption": "Foto: projeto de cozinha"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=900&q=85",
+      "alt": "Projeto de casa de banho personalizado",
+      "caption": "Foto: projeto de casa de banho"
+    }
+  ],
+  "contact": {
+    "src": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=85",
+    "alt": "Showroom de banho e cozinha",
+    "caption": "Foto: showroom"
+  }
+}

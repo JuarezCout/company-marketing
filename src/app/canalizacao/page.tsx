@@ -320,7 +320,10 @@ const services = [
     price: "sob orçamento",
     Icon: PipeIcon,
   },
-].map((service, index) => ({ ...canalizacaoContent.services[index], Icon: service.Icon }));
+].map((service, index) => ({
+  ...canalizacaoContent.services[index],
+  Icon: service.Icon,
+}));
 
 const reasons = canalizacaoContent.reasons;
 const steps = canalizacaoContent.steps;

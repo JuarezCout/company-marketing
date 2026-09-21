@@ -1,1 +1,45 @@
-{"hero":{"src":"","alt":"Fisioterapeuta a tratar paciente","caption":"Foto: fisioterapeuta a tratar um paciente"},"services":[{"src":"","alt":"Sessao de terapia manual","caption":"Foto: sessao de terapia manual"},{"src":"","alt":"Reabilitacao de lesao","caption":"Foto: reabilitacao pos-lesao"},{"src":"","alt":"Avaliacao de mobilidade","caption":"Foto: avaliacao de mobilidade"}],"steps":[{"src":"","alt":"Avaliacao inicial","caption":"Foto: passo 01"},{"src":"","alt":"Plano de tratamento","caption":"Foto: passo 02"},{"src":"","alt":"Acompanhamento continuo","caption":"Foto: passo 03"}],"testimonial":{"src":"https://i.pravatar.cc/64?img=59","alt":"Fernando A."}}
+{
+  "hero": {
+    "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=85",
+    "alt": "Fisioterapeuta a tratar um paciente",
+    "caption": "Foto: fisioterapeuta a tratar um paciente"
+  },
+  "services": [
+    {
+      "src": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=85",
+      "alt": "Sessao de terapia manual",
+      "caption": "Foto: sessao de terapia manual"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85",
+      "alt": "Paciente em reabilitacao de lesao",
+      "caption": "Foto: reabilitacao pos-lesao"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=900&q=85",
+      "alt": "Avaliacao de mobilidade numa clinica",
+      "caption": "Foto: avaliacao de mobilidade"
+    }
+  ],
+  "steps": [
+    {
+      "src": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85",
+      "alt": "Avaliacao inicial de fisioterapia",
+      "caption": "Foto: passo 01"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=85",
+      "alt": "Plano de tratamento de fisioterapia",
+      "caption": "Foto: passo 02"
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=900&q=85",
+      "alt": "Acompanhamento de recuperacao",
+      "caption": "Foto: passo 03"
+    }
+  ],
+  "testimonial": {
+    "src": "https://i.pravatar.cc/64?img=59",
+    "alt": "Fernando A."
+  }
+}
