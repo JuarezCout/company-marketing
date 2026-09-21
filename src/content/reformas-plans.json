@@ -1,0 +1,50 @@
+{
+  "start": {
+    "slug": "reformas",
+    "name": "Casa Certa Start",
+    "plan": "START",
+    "price": "250 EUR",
+    "eyebrow": "Presenca digital essencial",
+    "title": "Tecnico de confianca perto de ti.",
+    "description": "Uma pagina profissional para apresentar os servicos essenciais, contactos e formas rapidas de pedir ajuda.",
+    "services": ["Canalizacao", "Eletricidade", "Montagem de moveis", "Pintura"],
+    "features": ["Website profissional", "Servicos principais", "Contactos e telefone", "Versao mobile", "Publicacao online"],
+    "cta": "Ligar agora",
+    "benefits": ["Resposta rapida", "Precos transparentes", "Servico seguro", "Profissionais qualificados"],
+    "testimonial": "Precisava de varios pequenos arranjos e resolveram tudo numa visita. Equipa pontual e muito cuidadosa.",
+    "testimonialAuthor": "Marta Oliveira",
+    "faq": [{ "question": "Como peco um servico?", "answer": "Liga-nos ou envia uma mensagem pelo WhatsApp com o que precisas." }, { "question": "Dao garantia?", "answer": "Sim. Todos os servicos sao explicados antes de comecar e tem garantia." }]
+  },
+  "pro": {
+    "slug": "reformas-pro",
+    "name": "Casa Certa Pro",
+    "plan": "PRO",
+    "price": "350 EUR",
+    "eyebrow": "Presenca digital mais completa",
+    "title": "Mais servicos. Mais provas. Mais pedidos.",
+    "description": "Uma apresentacao completa para empresas que precisam de mostrar varias areas, trabalhos realizados e uma forma clara de pedir orcamento.",
+    "services": ["Reformas e obras", "Canalizacao", "Eletricidade", "Pintura e acabamentos", "Montagem de moveis", "Manutencao geral"],
+    "features": ["Tudo do START", "Mais secoes de conteudo", "Galeria de trabalhos", "Caso de estudo", "FAQ e areas de atuacao", "Formulario de orcamento"],
+    "cta": "Pedir orcamento",
+    "benefits": ["Resposta rapida", "Precos transparentes", "Servico seguro", "Profissionais qualificados"],
+    "testimonial": "A Casa Certa mostrou os trabalhos anteriores, explicou o processo e entregou a obra dentro do prazo.",
+    "testimonialAuthor": "Joao Martins",
+    "faq": [{ "question": "Fazem obras completas?", "answer": "Sim. Coordenamos reformas, acabamentos e os principais servicos tecnicos." }, { "question": "Posso pedir um orcamento?", "answer": "Sim. Envia os detalhes do projeto e marcamos uma avaliacao." }]
+  },
+  "premium": {
+    "slug": "reformas-premium",
+    "name": "Casa Certa Premium",
+    "plan": "PREMIUM",
+    "price": "550 EUR",
+    "eyebrow": "Solucao personalizada",
+    "title": "A sua empresa de construcao, apresentada como merece.",
+    "description": "Uma experiencia digital completa para empresas de construcao e remodelacao que querem destacar projetos, equipa, areas de atuacao e reputacao.",
+    "services": ["Construcao e remodelacao", "Projetos personalizados", "Obras integrais", "Engenharia e acompanhamento", "Acabamentos premium", "Manutencao pos-obra"],
+    "features": ["Tudo do PRO", "Estrutura personalizada", "Portefolio avancado", "Equipa e certificacoes", "Integracoes adicionais", "SEO local e dados estruturados", "Acompanhamento estrategico"],
+    "cta": "Falar sobre o projeto",
+    "benefits": ["Resposta rapida", "Precos transparentes", "Servico seguro", "Profissionais qualificados"],
+    "testimonial": "Precisavamos de uma presenca digital a altura da nossa empresa de construcao. O resultado transmite exatamente essa escala.",
+    "testimonialAuthor": "Ana Costa, Direcao",
+    "faq": [{ "question": "O plano pode ser personalizado?", "answer": "Sim. A estrutura e ajustada ao numero de areas, projetos, equipa e integracoes necessarias." }, { "question": "Inclui SEO local?", "answer": "O PREMIUM pode incluir configuracao de SEO local e dados estruturados conforme avaliacao." }]
+  }
+}

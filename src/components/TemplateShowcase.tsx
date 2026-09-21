@@ -1,8 +1,23 @@
 import Link from "next/link";
 import homeContent from "@/content/home.json";
 import { templates } from "@/data/templates";
+import reformsPlans from "@/content/reformas-plans.json";
 
 export default function TemplateShowcase() {
+  const showcaseItems = [
+    ...homeContent.showcase.items,
+    ...Object.values(reformsPlans)
+      .filter((plan) => plan.slug !== "reformas")
+      .map((plan) => ({
+        slug: plan.slug,
+        category: `Construção ${plan.plan}`,
+        label: "Casa Certa",
+        name: plan.name,
+        tagline: plan.description,
+        services: plan.services.slice(0, 2),
+      })),
+  ];
+
   return (
     <section id="templates" className="bg-brand-dark px-6 py-24 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -16,8 +31,8 @@ export default function TemplateShowcase() {
         </div>
 
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {homeContent.showcase.items.map((template) => {
-            const theme = templates.find((item) => item.slug === template.slug);
+          {showcaseItems.map((template) => {
+            const theme = templates.find((item) => item.slug === template.slug) ?? templates.find((item) => item.slug === "reformas");
             if (!theme) return null;
 
             return (
